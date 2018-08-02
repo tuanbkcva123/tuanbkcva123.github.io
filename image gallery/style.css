@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* CSS Document */
+body {
+	background-image: url('http://www.mebelitto.com/upload/g/green-forest-wallpaper-hd-background-hd-wallpapers-natural-innovative-ideas-simple-nature-background-hd-wallpaper.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	max-width: 1000px;
+	margin: auto;
+}
+.image{
+	float:left;
+	padding: 5px;
+	margin: 0;
+}
+#mainmenu a:link{
+	color: black;
+	text-decoration: none;
+	padding: 5px;
+}
+#mainmenu a:visited{
+	color: black;
+	text-decoration: none;
+	padding: 5px;
+}
+#mainmenu a:hover{
+	color: black;
+	text-decoration:underline;
+	padding: 5px;
+}
+#mainmenu a:active{
+	color: black;
+	text-decoration: none;
+	padding: 5px;
+}
+img:hover{
+	border-radius: 50%;
+}
+#banner img:hover{
+	border-radius: 0px;
+}
