@@ -1,0 +1,92 @@
+body {
+	background-image: url('https://rikalazu.files.wordpress.com/2013/10/up_movie_balloons_house-wide.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+}
+.chuc img{
+	border: 2px solid red;
+	border-radius: 50%;
+}
+#loichuc {
+	position: relative;
+}
+.me{
+	position: absolute;
+    top: -32px;
+    left: 565px;
+}
+.contrai {
+	position: absolute;
+    top: 315px;
+    left: 631px;
+ }
+.congai {
+	position: absolute;
+	top: 518px;
+    left: 771px;
+ }   
+.vo {
+	position: absolute;
+    top: 598px;
+    left: 998px;
+}
+.hb {
+	position: absolute;
+    top: 65px;
+    left: 844px;
+}
+#content {
+	font-size: 30px;
+	position: absolute;
+	top: 300;
+    left: 30px;
+}
+#content li {
+	font-family: cursive;
+	list-style-image: url('http://icons.iconarchive.com/icons/iconsmind/outline/32/Birthday-Cake-icon.png')
+}
+#content p {
+	font-size: 35px;
+	font-family: cursive;
+}
+.contrai {
+	opacity: 0.5;
+	transition: all 0.5s linear;
+}
+.me {
+	opacity: 0.5;
+	transition: all 0.5s linear;
+}
+.congai {
+	opacity: 0.5;
+	transition: all 0.5s linear;
+}
+.vo {
+	opacity: 0.5;
+	transition: all 0.5s linear;
+}
+.hb {
+	transition: all 0.5s linear;
+}
+.me:hover {
+	opacity: 1;
+	transform: scale(1.5);
+}
+.contrai:hover {
+	opacity: 1;
+	transform: scale(1.5);
+}
+.congai:hover {
+	opacity: 1;
+	transform: scale(1.5);
+}
+.vo:hover {
+	opacity: 1;
+	transform: scale(1.5);
+}
+.hb:hover {
+	opacity: 1;
+	transform: scale(1.2);
+}
+
