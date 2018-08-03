@@ -1,0 +1,48 @@
+#wrap {
+	font-size: 30px;
+	width: 1000px;
+	margin: auto;
+}
+@keyframes gh {
+	0%   {background-color: #EF7126; color: #F9E559;}
+    25%  {background-color: #6F3662; color: #FFFFFF;}
+    50%  {background-color: #9F6164; color: #F8DEBD;}
+    75%  {background-color: #44B3C2; color: #FFFFFF;}
+    100% {background-color: #218C8D; color: #F9E559;}
+}
+#banner {
+	text-align: center;
+	margin-bottom: 50px;
+	animation: gh 10s ease infinite;
+}
+.co {
+	float: left;
+	cursor: pointer;
+	margin: 5px;
+}
+.co2 {
+	overflow: hidden;
+}
+.co1 img {
+	transition: all 0.5s linear;
+}
+.co2 img {
+	opacity: 0.5;
+	transition:  all 0.5s linear;
+}
+.co3 img {
+	opacity: 1;
+	transition: all 0.5s linear;
+}
+.co1:hover img {
+	transform: translate(0, -5px);
+	box-shadow: 0 5px 5px 0 gray;.
+}
+.co2:hover img {
+	transform: scale(1.2);
+	opacity: 1;
+}
+.co3:hover img {
+	transform: scale(0.5);
+	opacity: 0.5;
+}
