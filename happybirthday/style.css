@@ -1,8 +1,24 @@
+@keyframes bg {
+	0% {background-image:url('https://rikalazu.files.wordpress.com/2013/10/up_movie_balloons_house-wide.jpg');}
+	50% {background-image: url('http://successyeti.com/wp-content/uploads/2015/10/up.jpg');}
+	100% {background-image: url('https://m.media-amazon.com/images/M/MV5BMTMyODc0ODI2OF5BMl5BanBnXkFtZTcwODQ5OTIzMw@@._V1_SY1000_CR0,0,1773,1000_AL_.jpg');}
+}
+@keyframes tt {
+	from {opacity: 0;}
+	to {opacity: 1;}
+}
+@keyframes hbd {
+	0% {color: red;}
+	25% {color: blue; transform: scale(1.1);}
+	50% {color: orange; transform: scale(1);}
+	100% {color: green; transform: scale(1.1);}
+}
 body {
 	background-image: url('https://rikalazu.files.wordpress.com/2013/10/up_movie_balloons_house-wide.jpg');
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
+	animation: bg 15s linear infinite;
 }
 .chuc img{
 	border: 2px solid red;
@@ -43,12 +59,15 @@ body {
     left: 30px;
 }
 #content li {
+	font-size: 25px;
 	font-family: cursive;
-	list-style-image: url('http://icons.iconarchive.com/icons/iconsmind/outline/32/Birthday-Cake-icon.png')
+	list-style-image: url('http://icons.iconarchive.com/icons/iconsmind/outline/32/Birthday-Cake-icon.png');
+	animation: tt 10s linear 1;
 }
 #content p {
-	font-size: 35px;
+	font-size: 50px;
 	font-family: cursive;
+	animation: hbd 5s linear infinite;
 }
 .contrai {
 	opacity: 0.5;
@@ -89,4 +108,3 @@ body {
 	opacity: 1;
 	transform: scale(1.2);
 }
-
