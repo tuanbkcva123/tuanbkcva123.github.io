@@ -1,0 +1,176 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+/*==Body==*/
+body, html {
+	background-color: gray;
+	font-family: sans-serif;
+	color: #333;
+	margin: 0;
+	padding: 0;
+}
+/*==thanh menu==*/
+#top {
+	position: relative;
+	z-index: 100000000000000000;
+}
+/*==Menu==*/
+#menu ul {
+	list-style-type: none;
+	background-color: #2b2323;
+	text-align: center;
+}
+
+#menu ul li {
+	color: #f1f1f1;
+	display: inline-table;
+	width: 120px;
+	height: 60px;
+	line-height: 60px;
+	position: relative;
+}
+
+#menu ul li a {
+	color: #f1f1f1;
+	text-decoration: none;
+	display: block;
+}
+
+#menu ul li a:hover {
+	background: #e00000;
+	color: #d9e00d;
+}
+
+#menu ul li .sub-menu {
+	display: none;
+	position: absolute;
+}
+#menu ul li:hover .sub-menu {
+	display: block;
+}
+.sub-menu li {
+	font-size: 10px;
+}
+
+/*==logo&delivery==*/
+#logo {
+	position: absolute;
+	top: -10px;
+	left: 200px;
+	z-index: 10000000000;
+}
+#delivery {
+	position: absolute;
+	top: 12px;
+	right: 100px;
+}
+/*==bottom==*/
+#bottom {
+	width: auto;
+	color: white;
+	background: #2b2323;
+}
+#bottom1 ul {
+	list-style-type: none;
+	text-align: center;
+	position: relative;
+}
+#bottom1 ul li {
+	display: inline-table;
+	height: 10px;
+	line-height: 120px;
+}
+#bottom1 ul li a {
+		color: #f1f1f1;
+		text-decoration: none;
+}
+
+/*==text==*/
+#text {
+	color: black;
+	font-size: 30px;
+	font-family: sans-serif;
+	background-color: gray;
+	text-indent: 350px;
+}
+
+/*==content==*/
+#content {
+	max-width: 1300px;
+	margin: auto;
+	background-color: white;
+}
+.thucdon div {
+	margin: 0px;
+	padding: 20px;
+}
+.thucdon > div {
+	margin-top: 0px;
+	padding: 10px;
+}
+#m1 {
+	position: relative;
+}
+#m1 div {
+	position: absolute;
+	top: 60px;
+	left: 400px;
+}
+#m3 {
+	position: relative;
+}
+#m3 div {
+	position: absolute;
+	top: 60px;
+	left: 400px;
+} 
+#m5 {
+	position: relative;
+}
+#m5 div {
+	position: absolute;
+	top: 60px;	
+	left: 400px;
+}
+#m2 {
+	position: relative;
+}
+#m2 div {
+	position: absolute;
+	top: 60px;
+	left: 400px;
+}#m4 {
+	position: relative;
+}
+#m4 div {
+	position: absolute;
+	top: 60px;
+	left: 400px;
+}#m6 {
+	position: relative;
+}
+#m6 div {
+	position: absolute;
+	top: 60px;
+	left: 400px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
