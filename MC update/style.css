@@ -12,6 +12,7 @@ body {
 /*==thanh menu==*/
 #top {
 	position: relative;
+	box-sizing: border-box;
 }
 
 /*==Menu==*/
@@ -51,7 +52,6 @@ body {
 .sub-menu li {
 	font-size: 11px;
 }
-
 /*==logo&delivery==*/
 #logo {
 	position: absolute;
@@ -69,6 +69,7 @@ body {
 	width: 1440px;
 	color: white;
 	background: #2b2323;
+	box-sizing: border-box;
 }
 #bottom1 ul {
 	list-style-type: none;
