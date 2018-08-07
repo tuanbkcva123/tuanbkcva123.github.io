@@ -1,0 +1,83 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+ /*==header==*/
+
+ #second-menu ul {
+	list-style-type: none;
+	text-align: left;
+	height: 35px;
+	background-color: #ded9df;
+}
+ #second-menu ul li {
+	display: inline-block;
+	height: 30px;
+	line-height: 30px;
+	padding-right: 10px;
+ }
+ #main-menu ul {
+ 	list-style-type: none;
+ 	text-align: center;
+ 	background-image: url('http://www.radikalway.com/images/receipe-banner.png');
+ }
+ #main-menu ul li {
+ 	display: inline-block;
+ 	height: 70px;
+ 	line-height: 70px;
+ 	width: 140px;
+ 	position: relative;
+ 	background-color: white;
+ }
+  #main-menu ul li:hover {
+ 	background: #ded9df;
+ }
+ #main-menu ul li .sub-menu {
+ 	display: none;
+ 	position: absolute;
+ }
+ .sub-menu li {
+ 	text-align: center;
+ 	width: 70px;
+ 	background-color: #ded9df;
+ }
+ #main-menu ul li:hover .sub-menu {
+ 	display: block;
+ }
+ #main-menu {
+ 	z-index: 2;
+ 	position: relative;
+ }
+
+
+/*==content==*/
+#content {
+	max-width: 1200px;
+	margin: auto;
+	z-index: 1; 
+	position: relative;
+	background-color: #ded9df;
+}
+#main-content ul {
+	list-style-type: none;
+}
+#sidebar {
+	max-width: 324px;
+	align-content: center;
+	overflow: auto;
+	position: absolute;
+	top: -3px;
+	right: -337px;
+	box-shadow: 0 5px 5px 0 black;
+	padding: 4px;
+}
+#sidebar div {
+	float: left;
+}
+/*==footer==*/
+#footer {
+	width: auto;
+	height: 100px;
+	background-color: #ded9df;
+}
