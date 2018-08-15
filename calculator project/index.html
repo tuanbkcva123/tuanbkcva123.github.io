@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>CALCULATOR</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div id="wrap">
+	<dir id="header">
+		<div class="banner">
+			WELCOME TO THE CALULATOR'S WORLD<br/>quick, easy and handy calulator online
+		</div>
+
+	</dir>
+	<hr>
+	<div id="content">	
+		<table>
+			<tr>
+				<td colspan="4"><input type="text" id="result"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="delete" class="btn" onclick="result.value = result.value.substr(0,result.value.length-1)"/></td>
+				<td><input type="button" value="Reset" class="btn" onclick="result.value = ''"></td>
+				<td><input type="button" value="%" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="/" class="btn" onclick="result.value += this.value"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="7" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="8" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="9" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="*" class="btn" onclick="result.value += this.value"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="4" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="5" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="6" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="-" class="btn" onclick="result.value += this.value"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="1" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="2" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="3" class="btn" onclick="result.value += this.value"></td>
+				<td><input type="button" value="+" class="btn" onclick="result.value += this.value"></td>
+			</tr>
+			<tr>
+				<td colspan="2"><input type="button" value="0" class="btn" id="btn0" onclick="result.value+=this.value"></td>
+				<td><input type="button" value="." class="btn" onclick="result.value += this.value"></td>
+				<td rowspan="2"><input type="button" value="=" class="btn" id="special" onclick="result.value = eval(result.value)"></td>
+			</tr>
+			<tr>
+				<td><input type="button" value="x^1/2" class="btn" onclick="power(0.5)"></td>
+				<td><input type="button" value="x^2" class="btn" onclick="power(2)"></td>
+				<td><input type="button" value="10^x" class="btn" onclick="powerten()"></td>
+			</tr>
+		</table>	
+	</div>
+	<hr>
+	<div id="footer">
+		<p>Thank you for using my production</p>
+		<p>this calculator will be upadated as soon as possible</p>
+		<p>*****THANK YOU*****</p>
+	</div>
+</div>
+<script type="text/javascript" src="event.js"></script>
+</body>
+</html>
