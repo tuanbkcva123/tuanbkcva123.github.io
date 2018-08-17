@@ -10,14 +10,17 @@ var op3 = document.getElementById('opt3');
 var op4 = document.getElementById('opt4');
 var nextButton = document.getElementById('nextButton');
 var resultCont = document.getElementById('result');
-var resultCont1 = document.getElementById('result1')
+var resultCont1 = document.getElementById('result1');
 var introCont = document.getElementById('intro');	
 var procs = document.getElementById('counter');
+var  mucs = document.getElementById('music');
+
 
 function start() {
 	introCont.style.display = 'none';
 	cotainer.style.display = '';
-	return;
+	mucs.autoplay = true;
+	mucs.load();
 };
 
 function callback() {
@@ -27,6 +30,7 @@ function callback() {
 function loadQuestion (questionIndex) {
 	var q = questions[questionIndex];
 	questionEl.textContent = (questionIndex + 1) + '. ' + q.question;
+	procs.textContent = "question" + ' ' + (questionIndex +1 ) + ' ' + "of 5";
 	opt1.textContent = q.option1;
 	opt2.textContent = q.option2;
 	opt3.textContent = q.option3;

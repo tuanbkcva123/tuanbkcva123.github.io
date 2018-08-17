@@ -7,20 +7,26 @@
 </head>
 <body>
 <div id="wrap">	
+	<div>
+		<audio id="music">
+			<source src="harry.mp3" type="audio/mpeg">
+		</audio>
+	</div>
 	<div id="intro" style="">
 		<div id="comment1"><p>You......</p></div>
-		<div id= comment2><p>Voldemort is coming.....<br/>he's so strong.....<br/>we need help</p></div>
+		<div id=comment2><p>Voldemort is coming.....<br/>he's so strong.....<br/>we need help</p></div>
 		<div id="comment3">SAVE HARRY POTTER</div>
 		<img src="https://www.modapartners.ca/hubfs/Moda%20Graphic/Images/play-button-png.png?t=1530921131031" onclick="start()" />
 	</div>
 	<div id="quizContainer" class="container" style=" display: none;">
-		<div class="title">Hurry up!!! Harry need you help<br>find answers</div>
+		<div class="title">Hurry up!!! Harry need you help<br>find the answer</div>
 		<div id="question" class="question"></div>
 		<label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
 		<label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
 		<label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
 		<label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
 		<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
+		<div id="counter"></div>
 	</div>
 	<div id="result1" class="container result" style="display: none;">
 		<div>Perfect!!! You saved Harry</div>

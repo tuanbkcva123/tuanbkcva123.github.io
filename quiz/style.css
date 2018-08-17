@@ -1,8 +1,15 @@
+@keyframes {
+	0%{background-position: 0% 0%;};
+
+
+}
 
 body {
+	margin: 0px;
+	padding: 0px;
 	font-family: sans-serif;
 	background-image: url('https://www.desktopbackground.org/download/1400x1050/2014/01/13/700770_harry-potter-wallpapers-harry-potter-backgrounds-harry-potter_1920x1080_h.jpg');
-	background-attachment: cover;
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 
@@ -142,6 +149,13 @@ body {
 	background: #08038C;
 	color: #000;
 }	
+
+#counter {
+	width: 200px;
+	position: absolute;
+	top: 350px;
+	left: 20px;
+}
 
 /*==trang chuc mung(thanh cong)==*/
 
