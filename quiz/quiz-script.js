@@ -37,27 +37,9 @@ function loadQuestion (questionIndex) {
 	opt4.textContent = q.option4;	
 };
 
-function loadNextQuestion() {
-	var selectedOption = document.querySelector('input[type=radio]:checked');
-
-	var answer = selectedOption.value;
-	if(questions[currentQuestion].answer == answer) {
-		score += 1;
-	}
-	selectedOption.checked = false;
-	currentQuestion++;
-	if (currentQuestion == lengQuestions - 1) {
-		nextButton.textContent = 'Finish';
-	}
-	if(currentQuestion == lengQuestions && score == 5 ) {
-		cotainer.style.display = 'none';
-		resultCont1.style.display = '';
-	}
-	if(currentQuestion == lengQuestions && score != 5) {
-		cotainer.style.display = 'none';
-		resultCont.style.display = '';	
-		return;
-	}
-	loadQuestion(currentQuestion);
-}
 loadQuestion(currentQuestion);
+
+function loadNextQuestion() {
+	currentQuestion++;
+	loadQuestion(currentQuestion);
+} 	 

@@ -1,45 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-	<title>Quiz</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<link href='https://fonts.googleapis.com/css?family=Sofia' rel='stylesheet'>
-	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		canvas {
+			border: 1px solid #d3d3d3;
+			background-color: #f1f1f1;
+		}
+	</style>
 </head>
-<body>
-<div id="wrap">	
-	<div>
-		<audio id="music">
-			<source src="harry.mp3" type="audio/mpeg">
-		</audio>
+<body onload="startGame">
+	<script>
+		function startGame() {
+			myGameArea.start();
+		}	
 
-	</div>
-	<div id="intro" style="">
-		<div id="comment1"><p>You......</p></div>
-		<div id=comment2><p>Voldemort is coming.....<br/>he's so strong.....<br/>we need help</p></div>
-		<div id="comment3">SAVE HARRY POTTER</div>
-		<img src="https://www.modapartners.ca/hubfs/Moda%20Graphic/Images/play-button-png.png?t=1530921131031" onclick="start()" />
-	</div>
-	<div id="quizContainer" class="container" style=" display: none;">
-		<div class="title">Hurry up!!! Harry need you help<br>find the answer</div>
-		<div id="question" class="question"></div>
-		<label class="option"><input type="radio" name="option" value="1" /><span id="opt1"></span></label>
-		<label class="option"><input type="radio" name="option" value="2" /><span id="opt2"></span></label>
-		<label class="option"><input type="radio" name="option" value="3" /><span id="opt3"></span></label>
-		<label class="option"><input type="radio" name="option" value="4" /><span id="opt4"></span></label>
-		<button id="nextButton" class="next-btn" onclick="loadNextQuestion();">Next Question</button>
-		<div id="counter"></div>
-	</div>
-	<div id="result1" class="container result" style="display: none;">
-		<div>Perfect!!! You saved Harry</div>
-		<p>press the icon on the right side to see the magic   <img src="http://cdn.onlinewebfonts.com/svg/img_212791.png" width="30px" height="30px" onclick="callback()" /></p>
-	</div>
-	<div id="result" class="container result" style="display: none;">
-		<div>You didn't get enought answers!!!</div>
-		<p>press the icon on the right side to call the time back   <img src="http://cdn.onlinewebfonts.com/svg/img_212791.png" width="30px" height="30px" onclick="callback()" /></p>		
-	</div>
-</div>
-	<script src="question.js"></script>
-	<script src="quiz-script.js"></script>
+		var myGameArea = {
+			canvas : document.createElement("canvas"),
+			start : function() {
+				this.canvas.width = 480;
+				this.canvas.height = 270;
+				this.context = this.canvas.getContext("2d");
+				document.body.insertBefore(this.canvas, document.body.childNodes[0]);	
+			}
+		}
+	</script>
+	
 </body>
 </html>

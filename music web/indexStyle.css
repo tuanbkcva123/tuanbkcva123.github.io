@@ -1,0 +1,486 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+#slide, .wrap, .slide-content{
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    height: 90vh;
+    overflow-x: hidden;
+} 
+
+body {
+    background: url('https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/lit-up-starry-sky-in-space_-jsf4r3eb__F0000.png');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-sizing: border-box;
+}
+
+.space {
+    width: 100%;
+    height: 50px;    
+}
+
+.space1 {
+    width: 100%;
+    height: 200px;    
+}
+
+.space3 {
+    width: 100%;
+    height: 10px;
+}
+
+/*==slider==*/
+
+.wrap{
+    position: relative;
+}
+
+.slide{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: default;
+}
+
+.slide1{
+    background-image: url('image7.jpg')
+}
+.slide2{
+    background-image: url('image2.jpg')
+}
+.slide3{
+    background-image: url('image3.jpg')
+}
+.slide4{
+    background-image: url('image4.jpg')
+}
+.slide5{
+    background-image: url('image5.jpg')
+}
+.slide6{
+    background-image: url('image6.jpg')
+}
+.slide7{
+    background-image: url('image1.jpg')
+}
+
+.slide-content {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#arrow-left {
+    position: absolute;
+    top: 40%;
+    left: 20px;
+    opacity: 0.3;
+    transition: all 1s linear 1;
+}
+
+#arrow-left:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+#arrow-right {
+    position: absolute;
+    top: 40%;
+    right: 20px;
+    opacity: 0.3;
+    transition: all 1s linear 1;
+}
+
+#arrow-right:hover {
+    opacity: 1;
+    transform: scale(1.3);
+}
+
+
+
+/*==thanh Menu==*/
+
+#menu {
+    text-align: right;
+    list-style-type: none;
+    background-color: rgba(0, 0, 0, 0.7);
+    width: 100%;
+    height: 10vh;
+    line-height: 10vh;
+    z-index: 1000000;
+}
+
+#menu ul li {
+    display: inline-block;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+#menu ul li a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+} 
+ 
+
+
+/*==logo va search bar==*/
+
+#icon img {
+    width: 100px;
+    height: 60px;
+}
+
+#icon {
+    position: fixed;
+    top: -5px;
+    left: 20px;
+}
+
+input[type=text] {
+    width: 250px;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    font-size: 16px;
+    background-color: white;
+    padding: 12px 20px 12px 12px;
+    opacity: 0.5;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 300px;
+    opacity: 1;
+}
+
+
+
+/*==ALBUMS==*/
+#album {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#album span {
+    cursor: pointer;
+}
+
+#album span a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+#main-album {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: 290px;
+}
+
+#more a {
+    color: white;
+    text-decoration: none;
+}
+
+.box1 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+.box8 {
+    grid-column: 2/4;
+    grid-row: 4/6;  
+}
+
+.box {
+    position: relative;
+}
+
+.overlay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 30%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+  
+.box:hover img{
+    opacity: 0.5;
+}
+
+.box:hover .overlay {
+    opacity: 1;
+}
+
+
+
+/*==TOPIC==*/
+
+#hot-topic {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 40px;
+}
+
+#hot-topic span a {
+    color: white;
+    text-decoration: none;
+}
+
+.main-topic ul {
+    width: 100%;
+    height: 75vh;
+    background:rgba(0, 0, 0, 0.5);
+}
+
+.main-topic ul li {
+    list-style-type: none;
+    position: relative;
+    width: 20%;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.5);
+    float: left;
+    box-sizing: border-box;
+    transition: 0.5s;
+    text-align: center;
+    overflow: hidden;
+}
+
+.main-topic ul li:nth-child(1){
+    background: url('https://i.ytimg.com/vi/5sKRJX4W3CY/maxresdefault.jpg');
+    background-size: cover;
+    background-position: left;
+}
+
+.main-topic ul li:nth-child(2){
+    background: url('https://i.ytimg.com/vi/VsTd4rM6V50/maxresdefault.jpg');
+    background-size: cover;
+    background-position: left;
+}
+
+.main-topic ul li:nth-child(3){
+    background: url('http://img.didauchoigi.com/Images/Uploaded/Share/2015/07/11/phuotthunghigikhicuoinhau.jpg');
+    background-size: cover;
+    background-position: left;
+}
+
+.main-topic ul li:nth-child(4){
+    background: url('http://kerkyra.net/beauty/wp-content/uploads/2018/03/yimg_TSeN5b1.jpg');
+    background-size: cover;
+    background-position: left;
+}
+
+.main-topic ul li:nth-child(5){
+    background: url('http://www.viatys.com/wp-content/uploads/2018/03/RA193_happy_employees_at_work.jpg');
+    background-size: cover;
+    background-position: left;
+}
+
+.main-topic ul:hover li {
+    width: 10%; 
+}
+
+.main-topic ul li:hover {
+    width: 60%;
+}
+
+.main-topic ul li .mtopic-content {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    color: #fff;
+    opacity: 0;
+}
+
+.main-topic ul li:hover .mtopic-content {
+    bottom: 0;
+    transition: 1s;
+    transition-delay: 0.5s;
+    opacity: 1;
+}
+
+
+
+/*==MV==*/
+
+#MV {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#MV span {
+    cursor: pointer;
+}
+
+#MV span a {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+}
+
+#main-mv {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 5px;
+    grid-auto-rows: 290px;
+}
+
+.bo1 {
+    grid-column: 1/3;
+    grid-row: 1/3;
+}
+
+.mv {
+    position: relative;
+}
+
+.olay {
+    position: absolute; 
+    bottom: 0; 
+    background: rgba(0, 0, 0, 0.5); 
+    width: 100%;
+    height: 30%;
+    transition: .5s ease;
+    opacity:0;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+  
+.mv:hover img {
+    transform: scale(0.9);
+    opacity: 0.5;
+}
+
+.mv:hover .olay {
+    opacity: 1;
+}
+
+.olayy {
+    position: absolute; 
+    top: 30%;
+    width: 100%;
+    height: 70%;
+    transition: .5s ease;
+    opacity: 0;
+    color: white;
+    font-size: 40px;
+    text-align: center;
+}
+  
+.mv:hover .olayy {
+    opacity: 1;
+}
+
+
+/*==Song==*/
+
+#title-song {
+    text-align: center;
+    font-size: 40px;
+}
+
+#title-song a {
+    text-decoration: none;
+    text-transform: uppercase;
+    color: white;
+}
+ #song1 {
+     background: #fff;
+    width: 100%;
+    height: 60vh;
+    display: grid; 
+    grid-template-columns: repeat(7, 14.285%);
+ }
+
+ .c1 {
+     grid-column: 1/3;
+     grid-row: 1/4;
+     background: gray;
+ }
+
+ .c2 {
+     grid-column: 3/5;
+     grid-row: 1/3;
+     background: gray;
+ }
+
+.c7 {
+    grid-column: 6/8;
+    grid-row: 2/4;
+    background: gray;
+}
+
+#song2 {
+    background: #fff;
+    width: 100%;
+    height: 60vh;
+    display: grid; 
+    grid-template-columns: repeat(7, 14.285%);
+}
+
+.co1{
+    grid-column: 1/3;
+    grid-row: 1/3;
+    background: gray;
+}
+
+.co3 {
+    grid-column: 3/5;
+    grid-row: 1/3;
+    background: gray;
+}
+
+.co4 {
+    grid-column: 6/8;
+    grid-row: 1/4;
+    background: gray;
+}
+
+#song3 {
+    background: #fff;
+    width: 100%;
+    height: 60vh;
+    display: grid; 
+    grid-template-columns: repeat(7, 14.285%);
+}
+
+.cu1 {
+    grid-column: 1/3;
+    grid-row: 1/4;
+    background: gray;
+}
+
+.cu2{
+    grid-column: 3/5;
+    grid-row: 1/3;
+    background: gray;
+}
+
+.cu3 {
+    grid-column: 5/7;
+    grid-row: 1/3;
+    background: gray;
+}
