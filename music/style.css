@@ -1,0 +1,450 @@
+#header {
+    position: relative;
+    width: 100%;
+    height: 100vh !important;
+    margin: 0 !important;
+} 
+ 
+.nbr {
+    padding: 15px !important;
+    background-color:transparent !important; 
+    z-index: 1;
+    height: 11vh;
+}
+
+#carouselExampleIndicators {
+    position: absolute;
+    top: 0 !important;
+    width: 100% !important;
+    height: 100vh;
+}
+
+.nbr a  {
+    color: white !important;
+}
+
+.nbb a:hover {
+    color: #5BBD2B !important;
+}
+
+.nrr {
+    font-size: 30px !important;
+}
+
+.nrr span {
+    color: #5BBD2B;
+}
+
+.vip a {
+    color: gold !important;
+}
+
+.vip a:hover {
+    color: gold !important; 
+}
+
+#MV {
+    width: 100%;
+    height: 102.5vh;
+    margin-top: 20px
+}
+
+#MV h2 {
+    text-align: center;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+#MV h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#MV h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;;
+}
+
+.MV-title-tool {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+.col-md-3 {
+    padding: 9px !important;
+}
+
+.chrats-title {
+    padding: 3px !important;
+}
+
+#chrats {
+    width: 100%;
+    height: 150vh;
+    background: rgba(0, 0, 0, 0) url('bg.jpg') no-repeat fixed left top;
+    padding: 40px 0;
+    background-size: 100% 150vh;
+}
+
+#chrats h2 {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#chrats h2 a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#chrats h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid white;
+}
+
+.row h3 {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.row h3 a {
+    color: white;
+    text-decoration: none;
+    font-size: 25px;
+}
+
+.row h3 a:hover {
+    color: #5BBD2B;
+}
+
+.main-chrats {
+    position: relative;
+}
+
+.main-chrats-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    font: 20px;
+}
+
+#number {
+    text-align: center;
+    font-size: 20px;
+}   
+
+.other-main-chrats {
+    display: grid;
+    grid-template-columns: 15% 65% 20%;
+    margin: 26px 0 13px 0 ;
+}
+
+.mb {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.ttl {
+    color: white;
+}
+
+#Album {
+    width: 100%;
+    height: 100vh;
+}
+
+#Album h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#Album h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#Album h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+.AB-title-tool {
+    display: grid;
+    grid-template-columns: 80% 20%;
+}
+
+#topic {
+    width: 100%;
+    height: 60vh;
+    background: rgba(0,0,0,0.3) url(https://farm9.staticflickr.com/8673/15818533766_bb7915ef79_b.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#topic h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#topic h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#topic h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+#Song {
+    width: 100%;
+    height: auto;
+    margin: auto;
+}
+
+#Song h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#Song h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#Song h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+.hide {
+    transform: scale(0);
+    width: 0;
+    border: 0;
+}
+
+.col-md-3 img {
+    width: 100%;
+}
+
+.button-group {
+    text-align: center;
+}
+
+.button-group button {
+    width: 150px;
+    margin: 0 15px 15px 15px;
+    background: none rgba(0, 0, 0, 0);
+    border: 2px solid #5BBD2B;
+}
+
+.ht img {
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#hit {
+    width: 100%;
+    height: 60vh;
+    background: rgba(0,0,0,0.3) url(http://singletonentertainment.96.lt/Wizard/wallpapers/music/Wallpapersxl%20Girls%20Music%20Girl%20487470%201920x1080.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#hit h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#hit h2 a {
+    text-decoration: none;
+    color: white;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#hit h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid white;
+}
+
+#blog {
+    width: 100%;
+    height: auto;
+}
+
+#blog h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#blog h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#blog h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+.bln {
+    text-align: center;
+    height: 300px;
+    padding: 2px;
+}
+
+#art {
+    width: 100%;
+    height: 60vh;
+    background: rgba(0,0,0,0.3) url(https://farm9.staticflickr.com/8673/15818533766_bb7915ef79_b.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#art h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#art h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#art h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+.my-art img {
+    border: 2px solid #5BBD2B;
+    border-radius: 50%;
+}
+
+#evt {
+    width: 100%;
+    height: 120vh;
+}
+
+#evt h2 { 
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 50px;
+}
+
+#evt h2 a {
+    text-decoration: none;
+    color: black;
+    padding-bottom: 3px;
+    border-bottom: 2px solid #5BBD2B;
+}
+
+#evt h2 a:hover {
+    color: #5BBD2B;
+    border-bottom: 2px solid black;
+}
+
+#main-evt {
+    position: relative;
+}
+
+#other-event {
+    position: absolute;
+    top: 65px;
+    right: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    grid-gap: 5px;
+    grid-row: auto;
+}
+
+.main-other-event {
+    border: 2px solid rgba(0, 0, 0, 0);
+    text-align: center;
+    background: whitesmoke;
+}
+
+#formm {
+    position: absolute;
+    top: 27px;
+    right: 25px;
+    width: 55%;
+}
+
+.mw {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5px;
+    background: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    color: white;
+}
+
+#title-event {
+    font-size: 22px;
+    cursor: pointer;
+}
+
+#title-event:hover {
+    color: #5BBD2B;
+}
+
+#main-evt h3 {
+    cursor: pointer;
+}
+
+#main-evt h3:hover {
+    color: #5BBD2B;
+}
+
+#before-footer {
+    width: 100%;
+    height: 50vh;
+    background: gray;
+}
+
+#bf-heading {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    margin: 30px;
+    color: white;
+}
+
+#partner ul li {
+    display: inline-block;
+    text-align: center;
+    margin: 30px 20px 0 20px;
+}
