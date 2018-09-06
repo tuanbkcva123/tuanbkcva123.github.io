@@ -17,12 +17,12 @@
         <div id="form_login"> 
             <div id="form_ten">Sign Up</div>
             <form id="first_form" action="result.html">
-                <input class="other" type="text" id="nm" name="name" placeholder="Name"><br>
+                <input class="other" type="text" id="nm" name="name" placeholder="Name"><span class="error"></span><br>
                 <input class="other" type="text" id="bd" name="bday" placeholder="birthday(Ex: dd/mm/yyyy)"><br>
-                <input class="other" type="text" id="em" name="email" placeholder="Email"><br>
-                <input class="other" type="text" id="pn" name="phone" placeholder="Phone number"><br>
-                <input class="other" type="text" id="ad" name="adress" placeholder="Adress"><br>
-                <input class="other" type="text" id="pw" name="pass" placeholder="Password"><br>
+                <input class="other" type="text" id="em" name="email" placeholder="Email(EX: joe@aol.com | ssmith@aspalliance.com | a@b.cc)"><span class="error"></span><br>
+                <input class="other" type="text" id="pn" name="phone" placeholder="Phone number(Ex: +31235256677 | +31(0)235256677 | 023-5256677)"><span class="error"></span><br>
+                <input class="other" type="text" id="ad" name="adress" placeholder="Adress"><span class="error"></span><br>
+                <input class="other" type="text" id="pw" name="pass" placeholder="Password(Ex: 4 and 8 digits long and include at least one numeric digit.)"><span class="error"></span><br>
                 <input type="radio" id="male" name="sex" value="male"><label for="male">male</label>
                 <input type="radio" id="female" name="sex" value="female"><label for="female">female</label><br>
                 <input type="submit" id="btn" value="Sign Up">
@@ -33,6 +33,47 @@
     <script>
         $('#lbtn').click(function() {
             $('#login_btn').addClass('first_hu');
+
+            $('#first_form').on('submit', function() {
+                var isValid = true;
+
+                if($('#nm').val().trim() == '' ) {
+                    $('#nm').next('span').text('Name is empty');
+                    isValid = false;
+                } else {
+                    $('#nm').next('span').text('');
+                }
+
+                if($('#ad').val().trim() == '' ) {
+                    $('#ad').next('span').text('adress is empty');
+                    isValid = false;
+                } else {
+                    $('#ad').next('span').text('');
+                }
+
+                if($('#pw').val().match(/^(?=.*\d).{4,8}$/) == null ) {
+                    $('#pw').next('span').text('password is empty');
+                    isValid = false;
+                } else {
+                    $('#pw').next('span').text('');
+                }
+
+                if($('#em').val().match(/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/) == null ) {
+                    $('#em').next('span').text('email is inValid');
+                    isValid = false;
+                } else {
+                    $('#em').next('span').text('');
+                }
+
+                 if($('#pn').val().match(/(^\+[0-9]{2}|^\+[0-9]{2}\(0\)|^\(\+[0-9]{2}\)\(0\)|^00[0-9]{2}|^0)([0-9]{9}$|[0-9\-\s]{10}$)/) == null ) {
+                    $('#pn').next('span').text('phone number is inValid');
+                    isValid = false;
+                } else {
+                    $('#pn').next('span').text('');
+                }
+
+                return isValid;
+            })
         })
     </script>  
 </body>
