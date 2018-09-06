@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="resultstyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="login_btn">
+            <div id="title">Thank You</div>
+            <div id="lbtn">
+                <div>user information</div>
+            </div>    
+        </div>
+        <div id="form_login"> 
+            <div id="form_login_title">User information</div>
+            <div class="infor" id="nm"></div>
+            <div class="infor" id="bd"></div>
+            <div class="infor" id="sx"></div>
+            <div class="infor" id="em"></div>
+            <div class="infor" id="pn"></div>
+            <div class="infor" id="ad"></div>
+            <div class="infor" id="pw"></div>
+        </div>
+    </div>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(function() {
+            $('#lbtn').click(function() {
+                var url = new URL(window.location.href);
+                var search = new URLSearchParams(url.search);
+                $('#login_btn').addClass('first_hu');
+                $('#nm').html("Name: " + search.get("name"));
+                $('#bd').html("Birthday: " + search.get("bday"));
+                $('#sx').html("Sex: " + search.get("sex"));
+                $('#em').html("Email: " + search.get("email"));
+                $('#pn').html("Phone number: " + search.get("phone"));
+                $('#ad').html("Adress: " + search.get("adress"));
+                $('#pw').html("Password: " + search.get("pass"));
+            })
+        })
+    </script>
+</body>
+</html>

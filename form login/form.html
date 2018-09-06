@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="formstyle.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="content">
+        <div id="login_btn">
+            <div id="lbtn">
+                <div>Sign Up</div>
+            </div>    
+        </div>
+        <div id="form_login"> 
+            <div id="form_ten">Sign Up</div>
+            <form id="first_form" action="result.html">
+                <input class="other" type="text" id="nm" name="name" placeholder="Name"><br>
+                <input class="other" type="text" id="bd" name="bday" placeholder="birthday(Ex: dd/mm/yyyy)"><br>
+                <input class="other" type="text" id="em" name="email" placeholder="Email"><br>
+                <input class="other" type="text" id="pn" name="phone" placeholder="Phone number"><br>
+                <input class="other" type="text" id="ad" name="adress" placeholder="Adress"><br>
+                <input class="other" type="text" id="pw" name="pass" placeholder="Password"><br>
+                <input type="radio" id="male" name="sex" value="male"><label for="male">male</label>
+                <input type="radio" id="female" name="sex" value="female"><label for="female">female</label><br>
+                <input type="submit" id="btn" value="Sign Up">
+            </form>
+        </div>
+    </div>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $('#lbtn').click(function() {
+            $('#login_btn').addClass('first_hu');
+        })
+    </script>  
+</body>
+</html>
