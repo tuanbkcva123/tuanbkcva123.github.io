@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Table</title>
+</head>
+<body>
+    <div id="title">BMW</div>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th onclick="sortTable()">Ảnh sản phẩm</th>
+                <th onclick="sortTable()">Tên sản phẩm
+                    <img src="https://cdn3.iconfinder.com/data/icons/interface/100/scroll_up_down-512.png" width="20px" height="20px">
+                </th>
+                <th onclick="sortTable()">Mã sản phẩm
+                        <img src="https://cdn3.iconfinder.com/data/icons/interface/100/scroll_up_down-512.png" width="20px" height="20px">
+                </th>
+                <th onclick="sortTable()">Giá tiền
+                    <img src="https://cdn3.iconfinder.com/data/icons/interface/100/scroll_up_down-512.png" width="20px" height="20px">
+                </th>
+                <th>Số lượng</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/1-series/5-door/2015/model-card/BMW-1-Series%205-door_Modelcard.png'></td>
+                <td>1 Series</td>
+                <td>5-door 118i</td>
+                <td>1.328.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/2-series/gran-tourer/2015/model-card/BMW-2-Series-Gran-Tourer_ModelCard.png'></td>
+                <td>2 Series</td>
+                <td>Gran Tourer 218i</td>
+                <td>1.498.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/3-series/sedan/2015/model-card/BMW-3-Series-Sedan_ModelCard.png'></td>
+                <td>3 Series</td>
+                <td>Sedan 330i</td>
+                <td>1.798.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/3-series/gran-turismo/2013/model-card/BMW-3-Series-Gran-Turismo_ModelCard.png'></td>
+                <td>3 Series</td>
+                <td>Gran Turismo 328i</td>
+                <td>2.299.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/4-series/gran-coupe/2014/model-card/BMW-4-Series-Gran-Coup%C3%A9_ModelCard.png'></td>
+                <td>4 Series</td>
+                <td>Gran Coupé 430i</td>
+                <td>2.198.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/5-series/sedan/2013/Model%20Card/BMW-5-Series-Sedan_ModelCard.png'></td>
+                <td>5 Series Sedan</td>
+                <td>Sedan 528i</td>
+                <td>2.598.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/6-series/gran-coupe/2014/model-card/BMW-6-Series-Gran-Coupe_ModelCard.png'></td>
+                <td>6 Series</td>
+                <td>Gran Coupé</td>
+                <td>3.888.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/7-series/sedan/2015/model-card/BMW-7-Series-Sedan_ModelCard.png'></td>
+                <td>7 Series</td>
+                <td>Sedan 740Li</td>
+                <td>4.998.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/x-series/x1/2015/model-card/BMW-X1_ModelCard.png'></td>
+                <td>X1</td>
+                <td>SUV sDrive18i</td>
+                <td>1.688.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/x-series/x3/2014/model-card/BMW-X3_ModelCard.png'></td>
+                <td>X3</td>
+                <td>SUV xDrive28i</td>
+                <td>2.479.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/x-series/x4/2014/model-card/BMW-X4_ModelCard.png'></td>
+                <td>X4</td>
+                <td>SUV xDrive20i</td>
+                <td>2.798.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/x-series/x5/2013/model-card/BMW-X5_ModelCard.png'></td>
+                <td>X5</td>
+                <td>SUV xDrive35i</td>
+                <td>3.788.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+            <tr>
+                <td><img src='https://www.bmw.vn/content/dam/bmw/common/all-models/x-series/x6/2014/model-card/BMW-X6_ModelCard.png'></td>
+                <td>X6</td>
+                <td>SUV xDrive35i</td>
+                <td>3.698.000.000 VND</td>
+                <td>còn hàng</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="table.js"></script>
+    <script>
+        $(function() {
+            $('#myTable').tablesorter();
+
+        })
+    </script>
+    
+</body>
+</html>
