@@ -1,0 +1,83 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(https://art-of-lol.com/wp-content/uploads/2015/11/Baron-Fight-League-Of-Legends-Wallpapers-HD-1920x1080.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#wrap {
+    position: relative;
+}
+
+
+
+.my_card {
+    padding: 5px;
+}
+
+.card {
+    position: relative;
+    cursor: pointer;
+    background: rgba(0,0,0,0);
+}
+
+.back {
+    position: absolute;
+    transform: rotateY(180deg);
+    transition: all 0.4s linear ;
+    backface-visibility: hidden;
+}
+
+.front {
+    transition: all 0.4s linear;
+    backface-visibility: hidden;
+}
+
+.front img, .back img {
+    border: 2px solid gray;
+}
+
+.front_clk {
+    transform: rotateY(180deg);
+}
+
+.back_clk {
+    transform: rotateY(0deg);
+}
+
+#playbtn {
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(https://art-of-lol.com/wp-content/uploads/2015/11/Baron-Fight-League-Of-Legends-Wallpapers-HD-1920x1080.jpg);
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#btn_clk {
+    position: absolute;
+    z-index: 1;
+    top: 199px;
+    left: 569px;
+}
+
+#btn_clk_main {
+    position: absolute;
+    top: 244px;
+    left: 650px;
+    z-index: 2;
+}
+
+.hd {
+    display: none;
+}
