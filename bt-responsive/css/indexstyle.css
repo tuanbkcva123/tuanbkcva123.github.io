@@ -210,7 +210,7 @@
 #about_us {
     width: 100%;
     height: auto;
-    background: url('/image/about-image/bg.png');
+    background: url('../image/about-image/about-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 50px;
@@ -264,7 +264,7 @@
 #menu {
     width: 100%;
     height: auto;  
-    background: url('/image/Menu/bg.jpg');
+    background: url('../image/Menu/menu-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -421,7 +421,7 @@
 /*==DISHES==*/
 
 #dish {
-    background: url(/image/dishes/bg.jpg);
+    background: url('../image/dishes/dh_bg.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -432,7 +432,7 @@
 }
 
 .my_dish {
-    background: url(/image/about-image/bg.png);
+    background: url('../image/about-image/about-bg.png');
     border: 1px solid white;
     border-radius: 10px;
     box-shadow: 0 0 10px white;
@@ -612,7 +612,7 @@
 /*==Delivery==*/
 
 #delivery {
-    background: url('/image/about-image/bg.png');
+    background: url('../image/about-image/about-bg.png');
     background-size: cover;
     background-repeat: no-repeat;
     padding: 70px;
@@ -813,7 +813,7 @@
 #rating {
     width: 100%;
     height: auto;
-    background: url('/image/rating/bg.jpg');
+    background: url('../image/rating/rating-bg.jpg');
     background-attachment: fixed;
     background-size: cover;
     background-repeat: no-repeat;
@@ -888,8 +888,8 @@
     width: 100%;
     height: auto;
     text-align: center;
-    padding: 70px;
-    background: url('/image/about-image/bg.png');
+    padding-top: 70px;
+    background: url('../image/about-image/about-bg.png');
 }
 
 #contact_title a {
@@ -900,5 +900,28 @@
 }
 
 #contact_first_img {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+}
+
+#main_contact {
+    background: url('../image/letter/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 50px;
+}
+
+.main_contact_content {
+    font-size: 25px;
+    color: #cb9f6b;
+}
+
+.main_contact_other {
+    font-size: 20px;
+    color: black;
+}
+
+.other_main_content {
+    color:  black;
+    font-size: 20px;
+    padding-top: 130px;
 }
