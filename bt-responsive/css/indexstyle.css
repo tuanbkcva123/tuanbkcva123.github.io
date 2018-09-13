@@ -74,7 +74,8 @@
 }
 
 .navbar button {
-    background: white;
+    background: #cb9f6b;
+    border: 1px solid #cb9f6b;
 }
 
 .slider_information {
@@ -110,6 +111,12 @@
     border-radius: 10px;
     width: 230px; 
     box-shadow: 0 0 5px white;
+}
+
+#slider_button a {
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
 }
 
 #slider_button:hover {
@@ -293,13 +300,13 @@
 }
 
 .my_img {
-    border: 1px solid white;
-    box-shadow: 0 0 5px white;
     overflow: hidden;
 }
 
 .my_img img {
     transition: 1s all linear;
+    border: 1px solid white;
+    box-shadow: 0 0 5px white;
 }
 
 .my_img img:hover {

@@ -1,0 +1,405 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+* img {
+    max-width: 100%;
+    height: auto;
+}
+
+/*==HEADER==*/
+
+.navbar {
+    width: 100%;
+    z-index: 1;
+    height: 66px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    padding: 0 8px 0 8px;
+}
+
+.navbar-brand, .nav-link  {
+    color: white !important;
+}
+  
+.nav-link {
+    margin: 0 18px 0 18px ;
+}
+
+
+.nav-link:hover {
+    color: #cb9f6b !important;
+}
+
+.navbar-nav {
+    margin-right: 0 !important;
+    margin-left: 278.969px !important;
+}
+
+.nav-item a {
+    padding: 0 !important;
+}
+
+.last_ni {
+    margin-right: 0 !important;
+}
+
+#header {
+    width: 100%;
+    height: auto;
+}
+.navbar {
+    z-index: 999;
+}
+
+.carousel-item img {
+    width: 100% !important;
+    height: auto !important; 
+}
+.collapse {
+    position: relative !important;
+}
+
+.navbar-nav {
+    position: absolute !important;
+    right: 0;
+}
+
+.navbar li a:hover {
+    border-bottom: 1px solid #cb9f6b;
+}
+
+.navbar button {
+    background: #cb9f6b;
+    border: 1px solid #cb9f6b;
+}
+
+.navbar-brand {
+    padding: 0 !important;
+    font-size: 30px;
+    margin-left: 15px;
+    font-family: 'Pacifico', cursive;
+}
+
+#banner {
+    width: 100%;
+    height: auto;
+    position: relative;
+    text-align: center;
+}
+
+#banner_title {
+    font-size: 22px;
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    font-family: 'Pacifico', cursive;    
+}
+
+#banner h1 {
+    font-size: 40px;
+    color: #cb9f6b;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);  
+}
+
+
+@media only screen and (max-width: 990px) {
+    .navbar-nav {
+        width: 100%;
+        text-align: center;
+        background: rgba(0,0,0,0.8);
+        margin: 7px;
+        border-top: 2px solid white;
+    }
+
+    .nav-item {
+        margin: 5px;
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    #banner img {
+        width: 100%;
+        height: 250px;
+    }
+
+    #banner h1 {
+        font-size: 40px;
+        color: #cb9f6b;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+    }
+}
+
+@media only screen and (max-width: 990px) {
+    #banner_title {
+        font-size: 18px;
+        color: white;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        font-family: 'Pacifico', cursive;    
+    }
+    
+    #banner h1 {
+        font-size: 30px;
+        color: #cb9f6b;
+        position: absolute;
+        top: 75%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%); 
+    }
+}
+
+/*==ABOUT==*/
+
+#about_about {
+    width: 100%;
+    height: auto;
+    padding: 70px;
+    background: url('../image/about-image/about-bg.png')
+}
+
+#about_container_title {
+    color: #cb9f6b;
+    font-family: 'Pacifico', cursive;
+}
+
+.my_about h1 {
+    margin-bottom: 20px;
+    font-size: 30px;
+}
+
+#about_image1, #about_image2 {
+    margin-top: 5px;
+}
+
+/*==ADVER==*/
+
+#adver {
+    background: url('../image/about-image/main-page-bg.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    padding: 120px;
+}
+
+#main_adver {
+    background: white;
+    padding: 50px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+}
+
+#main_adver_title {
+    color: #cb9f6b;
+    font-size: 22px;
+}
+
+#main_adver h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+    font-family: 'Pacifico', cursive;
+}   
+
+@media only screen and (max-width: 375px) {
+    #main_adver {
+        background: white;
+        padding: 5px;
+        box-sizing: border-box;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 5px white;
+    }
+
+    #main_adver_title {
+        color: #cb9f6b;
+        font-size: 13px;
+    }
+
+    #main_adver h1 {
+        font-size: 15px;
+        margin-bottom: 15px;
+    } 
+
+    #main_adver p {
+        font: 10px;
+    }
+
+    #adver {
+        background: url('../image/about-image/main-page-bg.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        padding: 50px;
+    }
+    
+}
+
+@media only screen and (max-width: 414px) {
+    #main_adver {
+        background: white;
+        padding: 5px;
+        box-sizing: border-box;
+        border: 1px solid white;
+        border-radius: 10px;
+        box-shadow: 0 0 5px white;
+    }
+
+    #main_adver_title {
+        color: #cb9f6b;
+        font-size: 13px;
+    }
+
+    #main_adver h1 {
+        font-size: 15px;
+        margin-bottom: 15px;
+    } 
+
+    #main_adver p {
+        font: 10px;
+    }
+
+    #adver {
+        background: url('../image/about-image/main-page-bg.jpg');
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        text-align: center;
+        padding: 50px;
+    }
+}
+
+/*==TEAM==*/
+
+#team {
+    text-align: center;
+    width: 100%;
+    height: auto;
+    padding: 50px;
+}
+
+#team_title {
+    font-size: 40px;
+}
+
+#team_main {
+    margin-top: 30px;
+}
+
+.chef_image {
+    margin: 20px 0 20px 0;
+}
+
+.chef_image img {
+    border: 1px solid white;
+    border-radius: 50%;
+    
+}
+
+.chef_name {
+    font-size: 20px;
+}
+
+.chef_contact {
+    cursor: pointer;
+}
+
+.chef_contact i {
+    width: 50px;
+    height: 50px;
+}
+
+.chef_main {
+    padding: 50px;
+    box-sizing: border-box;
+}
+
+.chef_about {
+    font-size: 20px;
+    font-family: 'Pacifico', cursive;
+    margin-bottom: 10px;
+}
+
+@media only screen and (max-width: 414px) {
+    .chef_main {
+        padding: 25px;
+        box-sizing: border-box;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .chef_contact i {
+        width: 20px;
+        height: 20px;
+    }
+
+    .chef_about {
+        font-size: 12px;
+        font-family: 'Pacifico', cursive;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    .chef_main {
+        padding: 25px;
+        box-sizing: border-box;
+    }
+}
+
+/*==newsletter==*/
+
+#newsletter {
+    width: 100%;
+    height: auto;
+    padding: 50px;
+    box-sizing: border-box;
+    background: url('../image/letter/bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;   
+    text-align: center;
+}
+
+#news_title {
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+#newsletter button {
+    background: #cb9f6b !important;
+    border: 1px solid #cb9f6b;
+    box-shadow: 0 0 5px white;
+    margin: 20px !important;
+    height: 50px;
+    width: 100px;
+}
+
+@media only screen and (max-width: 320px) {
+    #news_title h1 {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #news_title h1 {
+        font-size: 25px;
+    }
+}
