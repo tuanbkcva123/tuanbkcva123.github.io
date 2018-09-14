@@ -652,9 +652,11 @@
     padding: 60px;
 }
 
-#delivery_title {
+#delivery_title a {
     font-family: 'Pacifico', cursive;
     font-size: 40px;
+    color: black;
+    text-decoration: none;
 }
 
 #git img {
@@ -694,7 +696,7 @@
         border-radius: 10px 0 10px 0;
     }
 
-    #delivery_title {
+    #delivery_title a {
         font-family: 'Pacifico', cursive;
         font-size: 25px;
     }
@@ -706,7 +708,7 @@
 }
 
 @media only screen and (max-width: 414px) {
-    #delivery_title {
+    #delivery_title a {
         font-family: 'Pacifico', cursive;
         font-size: 23px;
     }
@@ -718,7 +720,7 @@
 }
 
 @media only screen and (max-width: 414px) {
-    #delivery_title {
+    #delivery_title a {
         font-family: 'Pacifico', cursive;
         font-size: 14px;
     }

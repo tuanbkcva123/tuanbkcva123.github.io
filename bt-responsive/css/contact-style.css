@@ -10,7 +10,6 @@
     height: auto;
 }
 
-
 /*==HEADER==*/
 
 .navbar {
@@ -164,182 +163,38 @@
     }
 }
 
-/*==CONTENT & Call Button==*/
-
-#reservation_content {
-    text-align: center;
-    padding: 50px 0 30px 0;
-    font-size: 20px;
-}
-
-#reservation_time span {
-    color: #cb9f6b;
-}
-
-#call_btn   {
-    text-align: center;
-    position: relative;
-    padding: 20px 0 50px 0;
-}
-
-#call_btn a {
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
-    color: black;
-    box-shadow: 0 0 5px white;
-    text-decoration: none;
-}
-
-#call_btn a:hover {
-    color: white;
-    background: #cb9f6b;
-}
-
-.btn {
-    background: #cb9f6b;
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-}
-
-
-/*==BOOKING==*/
-
-#book_online {
+/*==contact==*/
+#contact {
     width: 100%;
     height: auto;
+    text-align: center;
     background: url('../image/about-image/about-bg.png');
-    background-size: cover;
-    background-repeat: no-repeat;
-    text-align: center;
-    padding: 50px;
 }
 
-#book_online_tittle {
-    font-size: 40px;
-    font-family: 'Pacifico', cursive; 
-    padding: 30px;
+
+#contact_first_img {
+    margin-bottom: 50px;
 }
 
-@media only screen and (max-width: 320px) {
-    #book_online_tittle {
-        font-size: 30px;
-    }
-}
-
-/*==ADVER==*/
-
-#adver {
-    text-align: center;
-    padding: 150px;
-    background: url(../image/dishes/main-bg.jpg);
-    background-attachment: fixed;
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
-#adver_title {
-    font-size: 20px;
-    font-family: 'Pacifico', cursive; 
-    color: white;
-}
-
-#adver_other_title {
-    font-size: 30px;
-    color: white;
-}
-
-@media only screen and (max-width: 414px) {
-    #adver {
-        text-align: center;
-        padding: 50px;
-        background: url(../image/dishes/main-bg.jpg);
-        background-attachment: fixed;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-}
-
-/*==Hall==*/
-
-#hall {
-    width: 100%;
-    height: auto;
-    padding: 50px;
-    box-sizing: border-box;
-}
-
-.hall_img img {
-    padding: 10px;
-}
-
-#hall_title {
-    font-size: 18px;
-    color: #cb9f6b;
-    font-family: 'Pacifico', cursive; 
-}
-
-#hall h1 {
-    font-size: 30px;
-    padding: 0 0 20px 0;
-}
-
-#hall_btn {
-    margin-top: 20px;
-}
-
-#hall_btn a {
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    padding: 5px;
-    color: black;
-    box-shadow: 0 0 5px #cb9f6b;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-#hall_btn a:hover {
-    color: white;
-    background: #cb9f6b;
-}
-
-/*==newsletter==*/
-
-#newsletter {
-    width: 100%;
-    height: auto;
-    padding: 50px;
-    box-sizing: border-box;
+#main_contact {
     background: url('../image/letter/bg.png');
     background-size: cover;
-    background-repeat: no-repeat;   
-    text-align: center;
+    background-repeat: no-repeat;
+    padding: 50px;
 }
 
-#news_title {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 20px;
+.main_contact_content {
+    font-size: 25px;
+    color: #cb9f6b;
 }
 
-#newsletter button {
-    background: #cb9f6b !important;
-    border: 1px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
-    margin: 20px !important;
-    height: 50px;
-    width: 100px;
+.main_contact_other {
+    font-size: 20px;
+    color: black;
 }
 
-@media only screen and (max-width: 320px) {
-    #news_title h1 {
-        font-size: 25px;
-    }
-}
-
-@media only screen and (max-width: 360px) {
-    #news_title h1 {
-        font-size: 25px;
-    }
+.other_main_content {
+    color:  black;
+    font-size: 20px;
+    padding-top: 130px;
 }
