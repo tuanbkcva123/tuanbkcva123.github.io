@@ -163,6 +163,25 @@
     }
 }
 
+/*==button==*/
+
+    .call a, .book a {
+        display: inline-block;
+        color: black;
+        text-decoration: none;
+        border: 2px solid #cb9f6b;
+        border-radius: 10px;
+        padding: 5px;
+        margin: 5px;
+        box-sizing: border-box;
+    }
+
+    .call a:hover, .book a:hover {
+        color: white;
+        background: #cb9f6b;
+    }
+
+
 /*==CONTENT==*/
 
 #content {
@@ -170,7 +189,7 @@
     height: auto;
     padding: 58px;
     box-sizing: border-box;
-    text-align: cen er; 
+    text-align: center; 
 }
 
 #main_content {
@@ -323,6 +342,84 @@
     }
 }
 
+/*==MEETING==*/
+#meeting {
+    width: 100%;
+    height: auto;
+    padding: 58px;
+    box-sizing: border-box;
+    text-align: center; 
+}
+
+#main_meeting {
+    padding: 50px;
+}
+
+#meeting_title {
+    color: #cb9f6b;
+    font-size: 20px;
+    font-family: 'Pacifico', cursive; 
+}
+
+#main_meeting h1 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+#meeting_img {
+    border: 1px solid white;
+    box-shadow: 0 0 5px white;
+}
+
+@media only screen and (max-width: 768px) {
+    #main_meeting h1 {
+        font-size: 20px;
+        margin-bottom: 30px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #meeting_title {
+        color: #cb9f6b;
+        font-size: 13px;
+        font-family: 'Pacifico', cursive; 
+    }
+    
+    #main_meeting h1 {
+        font-size: 15px;
+        margin-bottom: 30px;
+    }
+
+    #main_meeting p {
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #meeting_title {
+        color: #cb9f6b;
+        font-size: 16px;
+        font-family: 'Pacifico', cursive; 
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    #meeting_title {
+        color: #cb9f6b;
+        font-size: 13px;
+        font-family: 'Pacifico', cursive; 
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #meeting {
+        width: 100%;
+        height: auto;
+        padding: 18px;
+        box-sizing: border-box;
+        text-align: center; 
+    }
+}
 /*==VIP==*/
 
 #vip {
