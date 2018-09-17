@@ -197,12 +197,6 @@
     background: #cb9f6b;
 }
 
-.btn {
-    background: #cb9f6b;
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-}
-
 
 /*==BOOKING==*/
 
@@ -216,16 +210,36 @@
     padding: 50px;
 }
 
+.btn {
+    background: white;
+    border: 2px solid #cb9f6b;
+    border-radius: 10px;
+    box-shadow: 0 0 5px white;
+    color: black;
+}
+
+.btn:hover {
+    background: #cb9f6b;
+    color: white;
+    border: 2px solid #cb9f6b;
+}
+
 #book_online_tittle {
     font-size: 40px;
     font-family: 'Pacifico', cursive; 
     padding: 30px;
 }
 
+form_main_btn
+
 @media only screen and (max-width: 320px) {
     #book_online_tittle {
         font-size: 30px;
     }
+}
+
+#form_ss {
+    text-align: center !important;
 }
 
 /*==ADVER==*/
@@ -314,7 +328,16 @@
     background: url('../image/letter/bg.png');
     background-size: cover;
     background-repeat: no-repeat;   
-    text-align: center;
+    text-align: center; 
+    position: relative;
+}
+
+#exampleInputEmail1 {
+    width: 25%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
 }
 
 #news_title {
@@ -336,10 +359,32 @@
     #news_title h1 {
         font-size: 25px;
     }
+
+    #exampleInputEmail1 {
+        width: 50%;
+    }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 375px) {
     #news_title h1 {
         font-size: 25px;
+    }
+
+    #exampleInputEmail1 {
+        width: 50%;
+    }
+
+    #exampleInputEmail1 {
+        width: 25%;
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #exampleInputEmail1 {
+        width: 50%;
     }
 }

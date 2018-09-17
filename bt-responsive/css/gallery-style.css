@@ -10,6 +10,12 @@
     height: auto;
 }
 
+body {
+    background: url('../image/about-image/about-bg.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 /*==HEADER==*/
 
 .navbar {
@@ -163,205 +169,88 @@
     }
 }
 
-/*==ABOUT==*/
+/*==container==*/
 
-#about_about {
-    width: 100%;
-    height: auto;
+.containter {
     padding: 70px;
-    background: url('../image/about-image/about-bg.png')
-}
-
-#about_container_title {
-    color: #cb9f6b;
-    font-family: 'Pacifico', cursive;
-}
-
-.my_about h1 {
-    margin-bottom: 20px;
-    font-size: 30px;
-}
-
-#about_image1, #about_image2 {
-    margin-top: 5px;
-}
-
-/*==ADVER==*/
-
-#adver {
-    background: url('../image/about-image/main-page-bg.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
-    text-align: center;
-    padding: 120px;
-}
-
-#main_adver {
-    background: white;
-    padding: 50px;
     box-sizing: border-box;
-    border: 1px solid white;
-    border-radius: 10px;
-    box-shadow: 0 0 5px white;
-}
-
-#main_adver_title {
-    color: #cb9f6b;
-    font-size: 22px;
-}
-
-#main_adver h1 {
-    font-size: 30px;
-    margin-bottom: 15px;
-    font-family: 'Pacifico', cursive;
-}   
-
-@media only screen and (max-width: 375px) {
-    #main_adver {
-        background: white;
-        padding: 5px;
-        box-sizing: border-box;
-        border: 1px solid white;
-        border-radius: 10px;
-        box-shadow: 0 0 5px white;
-    }
-
-    #main_adver_title {
-        color: #cb9f6b;
-        font-size: 13px;
-    }
-
-    #main_adver h1 {
-        font-size: 15px;
-        margin-bottom: 15px;
-    } 
-
-    #main_adver p {
-        font: 10px;
-    }
-
-    #adver {
-        background: url('../image/about-image/main-page-bg.jpg');
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-        padding: 50px;
-    }
-    
-}
-
-@media only screen and (max-width: 414px) {
-    #main_adver {
-        background: white;
-        padding: 5px;
-        box-sizing: border-box;
-        border: 1px solid white;
-        border-radius: 10px;
-        box-shadow: 0 0 5px white;
-    }
-
-    #main_adver_title {
-        color: #cb9f6b;
-        font-size: 13px;
-    }
-
-    #main_adver h1 {
-        font-size: 15px;
-        margin-bottom: 15px;
-    } 
-
-    #main_adver p {
-        font: 10px;
-    }
-
-    #adver {
-        background: url('../image/about-image/main-page-bg.jpg');
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        background-size: cover;
-        text-align: center;
-        padding: 50px;
-    }
-}
-
-/*==TEAM==*/
-
-#team {
     text-align: center;
-    width: 100%;
-    height: auto;
-    padding: 50px;
 }
 
-#team_title {
-    font-size: 40px;
-}
-
-#team_main {
-    margin-top: 30px;
-}
-
-.chef_image {
-    margin: 20px 0 20px 0;
-}
-
-.chef_image img {
-    border: 1px solid white;
-    border-radius: 50%;
-    
-}
-
-.chef_name {
+#title {
+    margin-bottom: 20px; 
+    font-family: 'Pacifico', cursive; 
     font-size: 20px;
 }
 
-.chef_contact {
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main_image {
+    width: 25%;
+    box-sizing: border-box;
+    padding: 3px;
     cursor: pointer;
 }
 
-.chef_contact i {
-    width: 50px;
-    height: 50px;
+.other {
+    width: 50%;
 }
 
-.chef_main {
-    padding: 50px;
-    box-sizing: border-box;
+
+.main_image figure {
+    -webkit-margin-before: 0;
+    -webkit-margin-after: 0;
+    -webkit-margin-start: 0;
+    -webkit-margin-end: 0;
 }
 
-.chef_about {
-    font-size: 20px;
-    font-family: 'Pacifico', cursive;
-    margin-bottom: 10px;
+.main_image img {
+    width: 100%;
+    display: block;
+}
+
+@media only screen and (max-width: 320px) {
+    .main_image {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 3px;
+    }
+
+    .other {
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 414px) {
-    .chef_main {
-        padding: 25px;
+    .main_image {
+        width: 100%;
         box-sizing: border-box;
+        padding: 3px;
+    }
+
+    .other {
+        width: 100%;
     }
 }
 
-@media only screen and (max-width: 768px) {
-    .chef_contact i {
-        width: 20px;
-        height: 20px;
-    }
-
-    .chef_about {
-        font-size: 12px;
-        font-family: 'Pacifico', cursive;
-        margin-bottom: 10px;
-    }
+/*==button==*/ 
+.button {
+    text-align: center !important;
+    margin-bottom: 20px;
 }
 
-@media only screen and (max-width: 375px) {
-    .chef_main {
-        padding: 25px;
-        box-sizing: border-box;
-    }
+.button a {
+    border: 2px solid #cb9f6b;
+    color: black;
+    margin: 3px;
+}
+
+.button a:hover {
+    background: #cb9f6b;
+    color: white;
 }
 
 /*==newsletter==*/

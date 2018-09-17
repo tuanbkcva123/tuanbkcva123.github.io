@@ -270,6 +270,9 @@
     padding: 58px;
     box-sizing: border-box;
     text-align: center; 
+    background: url('../image/about-image/about-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #main_wedding {
@@ -508,6 +511,9 @@
     padding: 58px;
     box-sizing: border-box;
     text-align: center; 
+    background: url('../image/about-image/about-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #main_music {
@@ -590,7 +596,16 @@
     background: url('../image/letter/bg.png');
     background-size: cover;
     background-repeat: no-repeat;   
-    text-align: center;
+    text-align: center; 
+    position: relative;
+}
+
+.form-group input {
+    width: 25%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%);
 }
 
 #news_title {
@@ -612,10 +627,32 @@
     #news_title h1 {
         font-size: 25px;
     }
+
+    .form-group input {
+        width: 50%;
+    }
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 375px) {
     #news_title h1 {
         font-size: 25px;
+    }
+
+    .form-group input {
+        width: 50%;
+    }
+
+    .form-group input {
+        width: 25%;
+        position: absolute;
+        left: 50%;
+        top: 45%;
+        transform: translateX(-50%);
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .form-group input {
+        width: 50%;
     }
 }

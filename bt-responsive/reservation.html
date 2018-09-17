@@ -38,10 +38,13 @@
                         <a class="nav-link" href="service.html">SERVICE</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">GALLERY</a>
+                        <a class="nav-link" href="gallery.html">GALLERY</a>
                     </li>
                     <li class="nav-item last_ni">
                         <a class="nav-link" href="contact.html">CONTACT</a>
+                    </li>
+                    <li class="nav-item last_ni">
+                        <a class="nav-link" href="">CART</a>
                     </li>
                 </ul>
             </div>
@@ -49,7 +52,7 @@
 
         <div id="banner">
             <img src="image/about-image/main-page-banner.jpg" class="img-fluid" alt="Responsive image">
-            <div id="banner_title">Booking a table online is easy</div>
+            <div id="banner_title">Booking a table</div>
             <h1>Make A Reservation</h1>
         </div>
     </div>
@@ -77,20 +80,39 @@
                     <input type="text" class="form-control" placeholder="Phone Number">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="inputAddress">Email</label>
-                    <input type="text" class="form-control" placeholder="Email">
-                </div>
                 <div class="form-row">
                     <div class="form-group col-md-6">
-                    <label for="inputCity">City</label>
-                    <input type="text" class="form-control" id="inputCity">
+                    <label for="inputEmail4">Email</label>
+                    <input type="text" class="form-control" placeholder="Email">
                     </div>
-                    <div class="form-group col-md-4">
-                    <label for="inputRestaurant">Restaurant</label>
+                    <div class="form-group col-md-6">
+                    <label for="inputPassword4">Date</label>
+                    <input type="text" class="form-control" placeholder="Date">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                    <label for="inputRestaurant">Restaurant address</label>
                     <select id="inputRestaurant" class="form-control">
                         <option selected>Choose...</option>
                         <option>...</option>
+                    </select>
+                    </div>
+                    <div class="form-group col-md-4">
+                    <label for="inputPersons">No.of Persons</label>
+                    <select id="inputPersons" class="form-control">
+                        <option selected>Choose...</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>More than 10</option>
                     </select>
                     </div>
                     <div class="form-group col-md-2">
@@ -102,7 +124,7 @@
                     <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="gridCheck">
                     <label class="form-check-label" for="gridCheck">
-                        please check your information carefully
+                        please check your information carefully<br>"We will not share your information"
                     </label>
                     </div>
                 </div>
@@ -149,7 +171,6 @@
         <form>
         <div class="form-group">
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-            <small id="emailHelp" class="form-text text-muted"><b>We'll never share your email with anyone else.</b></small>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
         </form>
