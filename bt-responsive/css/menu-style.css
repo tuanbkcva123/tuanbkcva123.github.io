@@ -13,7 +13,6 @@
 .choose {
     color: white !important;
     background: #cb9f6b;
-
 }
 /*==HEADER==*/
 
@@ -180,6 +179,7 @@
     font-size: 40px;
     color: black;
     margin-bottom: 50px;
+    font-family: 'Pacifico', cursive;
 }
 
 .main_menu_content {
@@ -219,6 +219,10 @@
 #breakfast {
     padding: 70px;
     box-sizing: border-box;
+    background: url('../image/about-image/about-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 #breakfast_title {
@@ -226,6 +230,7 @@
     font-size: 40px;
     color: black;
     margin-bottom: 50px;
+    font-family: 'Pacifico', cursive;
 }
 
 .main_breakfast_content {
@@ -243,16 +248,16 @@
 
 }
 
-.price {
+.breakfast_price {
     position: absolute;
     top: 0;
     right: 0;
     font-size: 18px;
 }
 
-.cart {
+.breakfast_cart {
     position: absolute;
-    bottom: 0;
+    bottom: 17px;
     right: 0;
     font-size: 13px;  
     background: #cb9f6b;
@@ -267,7 +272,9 @@
 
 .button a {
     border: 2px solid #cb9f6b;
-    color: black;
+    color: white;
+    background: #cb9f6b;
+    padding: 8px 15px;
     margin: 3px;
 }
 
@@ -305,13 +312,46 @@
 #lunch {
     padding: 70px;
     box-sizing: border-box;
-}
+}    
 
 #lunch_title {
     text-align: center;
     font-size: 40px;
     color: black;
     margin-bottom: 50px;
+    font-family: 'Pacifico', cursive;
+}
+
+.lunch_conten_iso {
+    position: relative;
+}
+
+.lunch_content{
+    margin: 10px;
+}
+
+.main_lunch_content_title a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+
+}
+
+.lunch_price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+}
+
+.lunch_cart {
+    position: absolute;
+    bottom: 17px;
+    right: 0;
+    font-size: 13px;  
+    background: #cb9f6b;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .lunch_button {
@@ -321,13 +361,34 @@
 
 .lunch_button a {
     border: 2px solid #cb9f6b;
-    color: black;
+    color: white;
+    background: #cb9f6b;
+    padding: 8px 15px;
     margin: 3px;
 }
 
-.lunch_button a:hover {
-    background: #cb9f6b;
-    color: white;
+.main_lunch_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.lunch_conten_iso {
+    width: 45%;
+    margin: 25px;
+}
+
+@media only screen and (max-width: 414px) {
+    .lunch_conten_iso {
+        width: 100%;
+        margin: 25px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .lunch_conten_iso {
+        width: 100%;
+        margin: 25px;
+    }
 }
 
 /*==dinner==*/
@@ -335,13 +396,50 @@
 #dinner {
     padding: 70px;
     box-sizing: border-box;
-}
+    background: url('../image/about-image/about-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}    
 
 #dinner_title {
     text-align: center;
     font-size: 40px;
+    font-family: 'Pacifico', cursive;
     color: black;
     margin-bottom: 50px;
+}
+
+.dinner_conten_iso {
+    position: relative;
+}
+
+.dinner_content{
+    margin: 10px;
+}
+
+.main_dinner_content_title a {
+    font-size: 18px;
+    color: black;
+    text-decoration: none;
+
+}
+
+.dinner_price {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+}
+
+.dinner_cart {
+    position: absolute;
+    bottom: 17px;
+    right: 0;
+    font-size: 13px;  
+    background: #cb9f6b;
+    padding: 5px;
+    cursor: pointer;
 }
 
 .dinner_button {
@@ -351,13 +449,34 @@
 
 .dinner_button a {
     border: 2px solid #cb9f6b;
-    color: black;
+    color: white;
+    background: #cb9f6b;
+    padding: 8px 15px;
     margin: 3px;
 }
 
-.dinner_button a:hover {
-    background: #cb9f6b;
-    color: white;
+.main_dinner_content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.dinner_conten_iso {
+    width: 45%;
+    margin: 25px;
+}
+
+@media only screen and (max-width: 414px) {
+    .dinner_conten_iso {
+        width: 100%;
+        margin: 25px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .dinner_conten_iso {
+        width: 100%;
+        margin: 25px;
+    }
 }
 
 /*==newsletter==*/

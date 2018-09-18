@@ -1,10 +1,21 @@
 $(function() {
-    //nut filter breakfast
 
     $hieuung = $('.main_breakfast_content').isotope({
         itemSelector: '.conten_iso',
         layoutMode: 'fitRows'
     });
+    
+    $hieuung1 = $('.main_lunch_content').isotope({
+        itemSelector: '.lunch_conten_iso',
+        layoutMode: 'fitRows'
+    });
+    
+    $hieuung12 = $('.main_dinner_content').isotope({
+        itemSelector: '.dinner_conten_iso',
+        layoutMode: 'fitRows'
+    });
+    
+    //nut filter breakfast
 
     $('.button a').click(function() {
         $('.button a').removeClass('choose');
@@ -17,33 +28,23 @@ $(function() {
 
     // nut filter lunch
 
-    $hieuung1 = $('.main_breakfast_content').isotope({
-        itemSelector: '.conten_iso',
-        layoutMode: 'fitRows'
-    });
-
     $('.lunch_button a').click(function() {
         $('.lunch_button a').removeClass('choose');
         $(this).addClass('choose');
-        buttonname1 = $(this).attr('href');
-        //console.log(buttonname);
-        $hieuung.isotope({filter:buttonname1});
+        buttonname_lunch = $(this).attr('href');
+        //console.log(buttonname_lunch);
+        $hieuung1.isotope({filter:buttonname_lunch});
         return false;
     })
 
     //nut filter dinner
-
-    $hieuung12 = $('.main_breakfast_content').isotope({
-        itemSelector: '.conten_iso',
-        layoutMode: 'fitRows'
-    });
 
     $('.dinner_button a').click(function() {
         $('.dinner_button a').removeClass('choose');
         $(this).addClass('choose');
         buttonname12 = $(this).attr('href');
         //console.log(buttonname);
-        $hieuung.isotope({filter:buttonname12});
+        $hieuung12.isotope({filter:buttonname12});
         return false;
     })
 }) 

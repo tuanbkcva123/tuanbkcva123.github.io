@@ -101,31 +101,14 @@
     height: 50px;
 }
 
-#slider_button {
-    cursor: pointer;
-    color: white;
-    font-size: 25px;
-    background: #cb9f6b;
-    padding: 5px;
-    box-sizing: border-box; 
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    width: 230px; 
-}
-
 #slider_button a {
     background: #cb9f6b;
     color: white;
     font-size: 25px;
-    text-decoration: none;
+    text-decoration: none;  
+    padding: 8px 15px; 
 }
 
-#slider_button:hover {
-    border: 2px solid #cb9f6b;
-    background: #cb9f6b;
-    color: white;
-}
- 
 .navbar-brand {
     padding: 0 !important;
     font-size: 30px;
@@ -157,7 +140,7 @@
         font-size: 28px;
     }
 
-    #slider_button {
+    #slider_button a {
         font-size: 25px;
         cursor: pointer;
         color: white;
@@ -179,7 +162,7 @@
         font-size: 18px;
     }
 
-    #slider_button {
+    #slider_button a {
         font-size: 15px;
         cursor: pointer;
         color: white;
@@ -201,19 +184,13 @@
         font-size: 13px;
     }
 
-    #slider_button  {
+    #slider_button a {
+        font-size: 10px;
         cursor: pointer;
         color: white;
-        padding: 2px;
+        padding: 8px 15px;
         box-sizing: border-box; 
-        border: 1px solid #cb9f6b;
-        border-radius: 5px;
-        width:80px; 
-        box-shadow: 0 0 5px white;
-    }
-
-    #slider_button a {
-        font-size: 13px;
+        border-radius: 10px;
     }
 
 }
@@ -339,17 +316,11 @@
 }
 
 #menu_btn a {
-    border: 2px solid #cb9f6b;
+    background: #cb9f6b;
     color: white;
     font-size: 22px;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 0 0 #cb9f6b white;
+    padding: 8px 15px;
     text-decoration: none;
-}
-
-#menu_btn a:hover {
-    background: #cb9f6b;
 }
 
 /*==TOPMEALs==*/
@@ -416,18 +387,11 @@
 }
 
 #main_top_meal_btn a {
-    border: 2px solid #cb9f6b;
-    color: black;
-    font-size: 22px;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 0 0 #cb9f6b white;
-    text-decoration: none;
-}
-
-#main_top_meal_btn a:hover {
-    background: #cb9f6b;
     color: white;
+    font-size: 22px;
+    padding: 8px 15px;
+    background: #cb9f6b;
+    text-decoration: none;
 }
 
 /*==DISHES==*/
@@ -481,19 +445,12 @@
 }
 
 #dish_btn a {
-    border: 1px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
-    padding: 5px;
-    color: black;
-    border-radius: 10px;
+    background: #cb9f6b;
+    padding: 8px 15px;
+    color: white;
     text-decoration: none;
     font-size: 22px;
 }
-
-#dish_btn a:hover {
-    color: white;
-    background: #cb9f6b;
-} 
 
 #dish_btn {
     margin-top: 30px;
@@ -675,19 +632,13 @@
 }
 
 #delivery_btn a {
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
     font-size: 22px;
-    padding: 5px;
+    padding: 8px 15px;
     color: black;
     text-decoration: none;
-    box-shadow: 0 0 2px white; 
-}
-
-#delivery_btn a:hover {
-    color: white;
     background: #cb9f6b;
 }
+
 
 @media only screen and (max-width: 770px) {
     #delivery_sbg {
@@ -749,13 +700,11 @@
     }
 
     #delivery_btn a {
-        border: 2px solid #cb9f6b;
-        border-radius: 10px;
         font-size: 12px;
-        padding: 5px;
+        padding: 8px 15px;
         color: black;
         text-decoration: none;
-        box-shadow: 0 0 2px white; 
+        background: #cb9f6b;
     }
 
     #git p {
@@ -808,14 +757,11 @@
 }
 
 .my_event_btn a {
-    color: black;
+    color: white;
     font-size: 20px;
-    border: 2px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
-    padding: 5px;
-    border-radius: 10px;
+    background: #cb9f6b;
+    padding: 8px 15px;
     text-decoration: none;
-    margin: 20px;
 }
 
 .my_event_btn a:hover {
@@ -823,6 +769,10 @@
     background: #cb9f6b;
 } 
 
+.event_content {
+    padding: 30px;
+    box-sizing: border-box;
+}
 /*==RATING==*/
 
 #rating {
@@ -977,8 +927,8 @@
 
 #newsletter button {
     background: #cb9f6b !important;
-    border: 1px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
+    padding: 8px 15px;
+    border: 2px solid #cb9f6b;
     margin: 20px !important;
     height: 50px;
     width: 100px;

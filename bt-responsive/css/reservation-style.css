@@ -183,18 +183,11 @@
 }
 
 #call_btn a {
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    font-size: 20px;
-    padding: 5px 10px 5px 10px;
-    color: black;
-    box-shadow: 0 0 5px white;
-    text-decoration: none;
-}
-
-#call_btn a:hover {
-    color: white;
     background: #cb9f6b;
+    font-size: 20px;
+    padding: 8px 15px;
+    color: white;
+    text-decoration: none;
 }
 
 
@@ -211,15 +204,8 @@
 }
 
 .btn {
-    background: white;
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    box-shadow: 0 0 5px white;
-    color: black;
-}
-
-.btn:hover {
     background: #cb9f6b;
+    padding: 8px 15px;
     color: white;
     border: 2px solid #cb9f6b;
 }
@@ -229,8 +215,6 @@
     font-family: 'Pacifico', cursive; 
     padding: 30px;
 }
-
-form_main_btn
 
 @media only screen and (max-width: 320px) {
     #book_online_tittle {
@@ -304,11 +288,9 @@ form_main_btn
 }
 
 #hall_btn a {
-    border: 2px solid #cb9f6b;
-    border-radius: 10px;
-    padding: 5px;
-    color: black;
-    box-shadow: 0 0 5px #cb9f6b;
+    background: #cb9f6b;
+    padding: 8px 15px;
+    color: white;
     text-decoration: none;
     font-size: 20px;
 }
@@ -349,7 +331,7 @@ form_main_btn
 #newsletter button {
     background: #cb9f6b !important;
     border: 1px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
+    padding: 8px 15px;
     margin: 20px !important;
     height: 50px;
     width: 100px;

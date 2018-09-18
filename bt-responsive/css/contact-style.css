@@ -193,10 +193,10 @@ textarea {
 }
 
 #form_btn button {
-    background: white;
-    color: black;
+    background: #cb9f6b;
+    color: white;
+    padding: 8px 15px;
     border: 2px solid #cb9f6b;
-    border-radius: 10px;
 }
 
 #form_btn button:hover {
@@ -277,7 +277,7 @@ textarea {
 #newsletter button {
     background: #cb9f6b !important;
     border: 1px solid #cb9f6b;
-    box-shadow: 0 0 5px white;
+    padding: 8px 15px;
     margin: 20px !important;
     height: 50px;
     width: 100px;
