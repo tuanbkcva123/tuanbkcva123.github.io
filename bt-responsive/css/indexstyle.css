@@ -105,12 +105,12 @@
     cursor: pointer;
     color: white;
     font-size: 25px;
+    background: #cb9f6b;
     padding: 5px;
     box-sizing: border-box; 
     border: 2px solid #cb9f6b;
     border-radius: 10px;
     width: 230px; 
-    box-shadow: 0 0 5px white;
 }
 
 #slider_button a {
@@ -191,7 +191,7 @@
     }
 }  
 
-@media only screen and (max-width: 330px) {
+@media only screen and (max-width: 375px) {
     .slider_information h1 {
         font-size: 13px;
     }
@@ -200,17 +200,21 @@
         font-size: 13px;
     }
 
-    #slider_button {
-        font-size: 13px;
+    #slider_button  {
         cursor: pointer;
         color: white;
         padding: 2px;
         box-sizing: border-box; 
         border: 1px solid #cb9f6b;
         border-radius: 5px;
-        width: 120px; 
+        width:80px; 
         box-shadow: 0 0 5px white;
-        }
+    }
+
+    #slider_button a {
+        font-size: 13px;
+    }
+
 }
 /*==ABOUT_US==*/
 
