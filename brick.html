@@ -10,6 +10,7 @@
         #canvas {
             border: 2px solid black;
             margin: auto;
+            background: gray;
         }
 
         #app {
@@ -19,7 +20,7 @@
 </head>
 <body>
     <div id="app">
-        <canvas id="canvas" width="480px" height="320px"></canvas>
+        <canvas id="canvas" width="495px" height="320px"></canvas>
     </div>
 
     <script>
@@ -39,7 +40,7 @@
                 paddleX: 200, 
                 rightPressed: false,
                 leftPressed: false,
-                brickRow: 3,
+                brickRow: 4,
                 brickColumn: 5,
                 brickWidth: 75,
                 brickHeight: 20,
@@ -115,10 +116,10 @@
                     for(var c=0; c<this.brickColumn; c++) {
                         for(var r=0; r<this.brickRow; r++) {
                             this.bricks.push({
-                                x : (c*(this.brickWidth+this.brickPadding)) + this.brickOffsetLeft,
-                                y : (r*(this.brickHeight+this.brickPadding)) + this.brickOffsetTop,
+                                a : (c*(this.brickWidth+this.brickPadding)) + this.brickOffsetLeft,
+                                b : (r*(this.brickHeight+this.brickPadding)) + this.brickOffsetTop,
                             });
-                        }
+                        } console.log(a)
                     }
                 },
  
@@ -127,7 +128,7 @@
                         var canvas = document.getElementById('canvas');
                         ctx = canvas.getContext('2d');
                         ctx.beginPath();
-                        ctx.rect(brick.x, brick.y, this.brickWidth, this.brickHeight);
+                        ctx.rect(brick.a, brick.b, this.brickWidth, this.brickHeight);
                         ctx.fillStyle = "black";
                         ctx.fill();
                         ctx.closePath();
@@ -184,7 +185,6 @@
             },
         })
 
-        console.log(gm.bricks)
     </script> 
 </body>
 </html>
