@@ -5,24 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
-    <title>game</title>
+    <link href="https://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet">
+    <title>Breakout</title>
     <style>
-
         body {
             background: url('background.png');
         }
-
         #canvas {
-            border: 2px solid gray;
+            border: 2px solid white;
             margin: auto;
             background: #707070;
         }
-
         #app {
             text-align: center;
             position: relative;
+            font-size: 10px;
         }
-
         #app h2, #app div {
             color: white;
         }
@@ -30,23 +28,31 @@
         
         #app h2 {
             font-size: 22px;
+            font-family: 'Electrolize', sans-serif;
+        }
+
+        #app h2 span {
+            color: red;
         }
 
         #app div {
-            padding-top: 10px;
+            padding-top: 5px;
             font-size: 18px;
         }
-
         #app img {
             position: absolute;
             top: 61px;
             right: 159px;
         }
+
+        #app b{
+            font-size: 22px;
+        }
     </style>
 </head>
 <body>
     <div id="app">
-        <h2>BREAKOUT<br>Trip to the Moon</h2>
+        <h2><b>BREAK</b><span>OUT</span><br><span>Fly</span> to the <span>Moon</span></h2>
         <img src="astronaut.png" width="150px" height="150px">
         <canvas id="canvas" width="470px" height="520px"></canvas>
         <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải hoặc chuột để di chuyển</div>
@@ -86,7 +92,7 @@
                     ctx.fillStyle = "white";
                     ctx.fillText("Score: "+this.score, 8, 20);
                 },
-
+                
                 drawlives: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -99,8 +105,8 @@
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.ballR, 0, Math.PI*2); console.log()
-                    ctx.fillStyle = "white";
+                    ctx.arc(this.x, this.y, this.ballR, 0, Math.PI*2);
+                    ctx.fillStyle = 'white';
                     ctx.fill();
                     ctx.closePath();
                 },
@@ -110,7 +116,7 @@
                     ctx = canvas.getContext('2d');
                     ctx.beginPath();
                     ctx.rect(this.paddleX, canvas.height-this.paddleHeight, this.paddleWidth, this.paddleHeight);
-                    ctx.fillStyle = "#79378B";
+                    ctx.fillStyle = "red";
                     ctx.fill();
                     ctx.closePath();
                 },
@@ -161,7 +167,7 @@
                                 ctx = canvas.getContext('2d');
                                 ctx.beginPath();
                                 ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
-                                ctx.fillStyle = "#79378B";
+                                ctx.fillStyle = this.getrandomcolor();
                                 ctx.fill();
                                 ctx.closePath();
                             }
@@ -188,6 +194,15 @@
                     }
                 },
 
+                getrandomcolor: function() {
+                    var letters = '0123456789ABCDEF'.split('');
+                    var color = '#';
+                    for (var i = 0; i < 6; i++ ) {
+                        color += letters[Math.floor(Math.random() * 16)];
+                    }
+                    return color;
+                },
+
                 update: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -198,6 +213,7 @@
                     this.collisionDetection();
                     this.drawBall();
                     this.drawPaddle();
+
                     if(this.x + this.dx > canvas.width-this.ballR || this.x + this.dx < this.ballR) {
                         this.dx = -this.dx;
                     }
@@ -216,7 +232,7 @@
                                 this.y = canvas.height-20;
                                 this.dx = -4.5;
                                 this.dy = -4.5;
-                                this.paddleX = 200;
+                                this.paddleX = canvas.width/2 - this.paddleWidth/2;
                             }
                         }
                     }
@@ -236,9 +252,11 @@
                 document.addEventListener("keyup", this.keyUp, false);
                 document.addEventListener("mousemove", this.mouseMove, false);
                 this.brickPush();
-                setInterval(this.update, 10); 
+                setInterval(this.update, 1000/120); 
             },
         })
+
+        console.log(gm.changeColor)
     </script> 
 </body>
 </html>
