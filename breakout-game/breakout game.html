@@ -20,6 +20,7 @@
 
         #app {
             text-align: center;
+            position: relative;
         }
 
         #app h2, #app div {
@@ -35,11 +36,18 @@
             padding-top: 10px;
             font-size: 18px;
         }
+
+        #app img {
+            position: absolute;
+            top: 61px;
+            right: 159px;
+        }
     </style>
 </head>
 <body>
     <div id="app">
         <h2>BREAKOUT<br>Trip to the Moon</h2>
+        <img src="astronaut.png" width="150px" height="150px">
         <canvas id="canvas" width="470px" height="520px"></canvas>
         <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải hoặc chuột để di chuyển</div>
     </div>
@@ -231,7 +239,6 @@
                 setInterval(this.update, 10); 
             },
         })
-        
     </script> 
 </body>
 </html>
