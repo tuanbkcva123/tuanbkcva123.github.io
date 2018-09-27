@@ -52,7 +52,7 @@
                 score: 0,
                 lives: 3,
                 x: canvas.width/2,
-                y: canvas.height,
+                y: canvas.height-20,
                 dx: 3,
                 dy: -3,
                 ballR: 10,
@@ -63,11 +63,10 @@
                 leftPressed: false,
                 brickRow: 8,
                 brickColumn: 6,
-                brickWidth: 74.16666,
+                brickWidth: 75.83333,
                 brickHeight: 20,
-                brickPadding: 5,
+                brickPadding: 3,
                 brickOffsetTop: 30,
-                brickOffsetLeft: 30,
                 bricks: [],
             },
             methods: {
@@ -92,7 +91,7 @@
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y-10, this.ballR, 0, Math.PI*2); console.log()
+                    ctx.arc(this.x, this.y, this.ballR, 0, Math.PI*2); console.log()
                     ctx.fillStyle = "white";
                     ctx.fill();
                     ctx.closePath();
@@ -167,7 +166,7 @@
                         for(var r=0; r<this.brickRow; r++) {
                             var b = this.bricks[c][r];
                             if(b.status == 1) {
-                                if(this.x > b.x && this.x < b.x+this.brickWidth && this.y > b.y && this.y < b.y+this.brickHeight) {
+                                if(this.x + 10 > b.x && this.x + 10 < b.x+this.brickWidth && this.y + 10 > b.y && this.y + 10 < b.y+this.brickHeight || this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
                                     this.dy = -this.dy;
                                     b.status = 0;
                                     this.score++;
@@ -196,8 +195,8 @@
                     }
                     if(this.y + this.dy < this.ballR) {
                         this.dy= -this.dy;
-                    } else if ( this.y + this.dy > canvas.height) {
-                        if(this.x > this.paddleX && this.x < this.paddleX + this.paddleWidth) {
+                    } else if ( this.y + this.dy > canvas.height-20) {
+                        if(this.x - 10 > this.paddleX && this.x - 10 < this.paddleX + this.paddleWidth || this.x + 10 > this.paddleX && this.x + 10 < this.paddleX + this.paddleWidth) {
                             this.dy = -this.dy;
                         } else {
                             this.lives--;
@@ -206,7 +205,7 @@
                                 document.location.reload();
                             } else {
                                 this.x = canvas.width/2;
-                                this.y = canvas.height-10;
+                                this.y = canvas.height-20;
                                 this.dx = -4.5;
                                 this.dy = -4.5;
                                 this.paddleX = 200;
@@ -214,10 +213,10 @@
                         }
                     }
                     if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
-                        this.paddleX += 7;
+                        this.paddleX += 8;
                     }
                     else if(this.leftPressed && this.paddleX > 0) {
-                        this.paddleX -= 7;
+                        this.paddleX -= 8;
                     }
                     this.y += this.dy;
                     this.x += this.dx;
@@ -229,7 +228,7 @@
                 document.addEventListener("keyup", this.keyUp, false);
                 document.addEventListener("mousemove", this.mouseMove, false);
                 this.brickPush();
-                setInterval(this.update, 10);  
+                setInterval(this.update, 10); 
             },
         })
         
