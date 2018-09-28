@@ -14,7 +14,7 @@
         #canvas {
             border: 2px solid white;
             margin: auto;
-            background: #707070;
+            background: rgba(0,0,0,0.5);
         }
         #app {
             text-align: center;
@@ -55,7 +55,10 @@
         <h2><b>BREAK</b><span>OUT</span><br><span>Fly</span> to the <span>Moon</span></h2>
         <img src="astronaut.png" width="150px" height="150px">
         <canvas id="canvas" width="470px" height="520px"></canvas>
-        <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải hoặc chuột để di chuyển </div>
+        <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải để di chuyển </div>
+        <audio id="audio" preload="auto" autoplay ="autoplay" style="display:none">
+            <source src="music.mp3">
+        </audio>
     </div>
 
     <script>
@@ -64,7 +67,7 @@
             el: '#app',
             data: {
                 score: 0,
-                lives: 3,
+                lives: 2,
                 x: canvas.width/2,
                 y: canvas.height-20,
                 dx: 3,
@@ -87,7 +90,7 @@
             },
 
             methods: {
-                
+
                 drawScore: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -114,6 +117,7 @@
                     ctx.closePath();
                 },
 
+
                 drawPaddle: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -127,9 +131,13 @@
                 keyDown: function(e) {
                     if(e.keyCode  == 39) {
                         this.rightPressed = true;
+                        document.getElementById("audio").play();
+
                     }
                     else if(e.keyCode  == 37) {
-                        this.leftPressed = true;
+                        this.leftPressed = true;    
+                        document.getElementById("audio").play();
+
                     }
                 },
 
@@ -139,13 +147,6 @@
                     }
                     else if(e.keyCode  == 37) {
                         this.leftPressed = false;
-                    }
-                },
-
-                mouseMove: function(e) {
-                    var relativeX = e.clientX - canvas.offsetLeft;
-                    if(relativeX > 0 && relativeX < canvas.width) {
-                        this.paddleX = relativeX - this.paddleWidth/2;
                     }
                 },
 
@@ -184,16 +185,16 @@
                             var b = this.bricks[c][r];
                             if(b.status == 1) {
                                 if(this.x + 10 > b.x && this.x + 10 < b.x+this.brickWidth && this.y + 10 > b.y && this.y + 10 < b.y+this.brickHeight || this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
-                                    if(this.bricks[c][r].color == "black") {
-                                        this.bricks[c][r].color = "yellow";
+                                    if(this.bricks[c][r].color == "#CC0099") {
+                                        this.bricks[c][r].color = "#FF3300";
                                         this.bricks[c][r].hardness = 3;
                                         this.dy = -this.dy;
-                                    } else if(this.bricks[c][r].color == "yellow") {
-                                        this.bricks[c][r].color = "green";
+                                    } else if(this.bricks[c][r].color == "#FF3300") {
+                                        this.bricks[c][r].color = "#99CC00";
                                         this.bricks[c][r].hardness = 2;
                                         this.dy = -this.dy;
-                                    } else if(this.bricks[c][r].color == "green") {
-                                        this.bricks[c][r].color = "blue";
+                                    } else if(this.bricks[c][r].color == "#99CC00") {
+                                        this.bricks[c][r].color = "#3366CC";
                                         this.bricks[c][r].hardness = 1;
                                         this.dy = -this.dy;
                                     } else {
@@ -201,10 +202,10 @@
                                         this.dy = - this.dy;
                                         this.score++;
                                     }
-
+                                
                                     if(this.score == this.brickColumn*this.brickRow) {
-                                        alert('you win' + ' ' + 'Your score:' + this.score);
-                                        document.location.reload();
+                                        alert('you win' + '--' + 'Your score:' + ' ' + SSSthis.score);
+                                        window.location.reload();
                                     }
                                 }
                             }
@@ -213,22 +214,22 @@
                 },
 
                 getrandomcolor: function() {
-                    var colorarr = ['black', 'green', 'blue','yellow'];
+                    var colorarr = ['#CC0099', '#FF3300', '#99CC00','#3366CC'];
                     this.rdm = colorarr[Math.round(Math.random() * 3)]
                     return this.rdm;
                 },
 
                 brickHardness: function() {
-                    if(this.rdm == 'black') {
+                    if(this.rdm == '#CC0099') {
                         this.brkhard = 4;
                     }
-                    if(this.rdm == 'yellow') {
+                    if(this.rdm == '#FF3300') {
                         this.brkhard = 3;
                     }
-                    if(this.rdm == 'green') {
+                    if(this.rdm == '#99CC00') {
                         this.brkhard = 2;
                     }
-                    if(this.rdm == 'blue') {
+                    if(this.rdm == '#3366CC') {
                         this.brkhard = 1;
                     }
 
@@ -257,13 +258,13 @@
                         } else {
                             this.lives--;
                             if(!this.lives) {
-                                alert("Game Over" + ' ' + 'Your score:' + this.score)
-                                document.location.reload();
+                                alert("Game Over" + ' ' + '--' + 'Your score:' + ' ' + this.score)
+                                window.location.reload();
                             } else {
                                 this.x = canvas.width/2;
                                 this.y = canvas.height-20;
-                                this.dx = -3;
-                                this.dy = -3;
+                                this.dx = -5;
+                                this.dy = -5;
                                 this.paddleX = canvas.width/2 - this.paddleWidth/2;
                             }
                         }
@@ -279,10 +280,10 @@
                 }
             },
             
-            mounted: function(){
+            mounted: function() {
+                document.getElementById("audio").play();
                 document.addEventListener("keydown", this.keyDown, false);
                 document.addEventListener("keyup", this.keyUp, false);
-                document.addEventListener("mousemove", this.mouseMove, false);
                 this.brickPush();
                 setInterval(this.update, 1000/120); 
             },
