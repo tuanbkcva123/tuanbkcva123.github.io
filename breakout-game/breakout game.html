@@ -75,13 +75,14 @@
                 paddleX: 200, 
                 rightPressed: false,
                 leftPressed: false,
-                brickRow: 8,
+                brickRow: 2,
                 brickColumn: 6,
                 brickWidth: 75.83333,
                 brickHeight: 20,
                 brickPadding: 3,
                 brickOffsetTop: 30,
                 bricks: [],
+                bricklive: '',
             },
             methods: {
                 
@@ -150,7 +151,7 @@
                     for(var c=0; c<6; c++) {
                         this.bricks[c] = [];
                         for(var r=0; r<8; r++) {
-                            this.bricks[c][r] = { x: 0, y: 0, status: 1 };
+                            this.bricks[c][r] = { x: 0, y: 0, status: 1, color: this.getrandomcolor() };
                         }
                     }
                 },
@@ -167,7 +168,7 @@
                                 ctx = canvas.getContext('2d');
                                 ctx.beginPath();
                                 ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
-                                ctx.fillStyle = this.getrandomcolor();
+                                ctx.fillStyle = this.bricks[c][r].color;
                                 ctx.fill();
                                 ctx.closePath();
                             }
@@ -195,12 +196,9 @@
                 },
 
                 getrandomcolor: function() {
-                    var letters = '0123456789ABCDEF'.split('');
-                    var color = '#';
-                    for (var i = 0; i < 6; i++ ) {
-                        color += letters[Math.floor(Math.random() * 16)];
-                    }
-                    return color;
+                    var colorarr = ['black', 'purple', 'blue','yellow'];
+                    var abc = colorarr[Math.round(Math.random() * 3)]
+                    return abc;
                 },
 
                 update: function() {
@@ -246,7 +244,7 @@
                     this.x += this.dx;
                 }
             },
-
+            
             mounted: function(){
                 document.addEventListener("keydown", this.keyDown, false);
                 document.addEventListener("keyup", this.keyUp, false);
@@ -256,7 +254,7 @@
             },
         })
 
-        console.log(gm.changeColor)
+        console.log(gm.bricks)
     </script> 
 </body>
 </html>
