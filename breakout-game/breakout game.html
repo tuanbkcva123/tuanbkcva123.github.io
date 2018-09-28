@@ -55,7 +55,7 @@
         <h2><b>BREAK</b><span>OUT</span><br><span>Fly</span> to the <span>Moon</span></h2>
         <img src="astronaut.png" width="150px" height="150px">
         <canvas id="canvas" width="470px" height="520px"></canvas>
-        <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải hoặc chuột để di chuyển</div>
+        <div><b><i>Hướng dẫn</i></b>: dùng mũi tên trái , phải hoặc chuột để di chuyển </div>
     </div>
 
     <script>
@@ -75,15 +75,17 @@
                 paddleX: 200, 
                 rightPressed: false,
                 leftPressed: false,
-                brickRow: 2,
+                brickRow: 6,
                 brickColumn: 6,
                 brickWidth: 75.83333,
                 brickHeight: 20,
                 brickPadding: 3,
                 brickOffsetTop: 30,
                 bricks: [],
-                bricklive: '',
+                rdm:'',
+                brkhard: '',
             },
+
             methods: {
                 
                 drawScore: function() {
@@ -151,7 +153,7 @@
                     for(var c=0; c<6; c++) {
                         this.bricks[c] = [];
                         for(var r=0; r<8; r++) {
-                            this.bricks[c][r] = { x: 0, y: 0, status: 1, color: this.getrandomcolor() };
+                            this.bricks[c][r] = { x: 0, y: 0, status: 1, color: this.getrandomcolor(), hardness: this.brickHardness()};
                         }
                     }
                 },
@@ -182,9 +184,24 @@
                             var b = this.bricks[c][r];
                             if(b.status == 1) {
                                 if(this.x + 10 > b.x && this.x + 10 < b.x+this.brickWidth && this.y + 10 > b.y && this.y + 10 < b.y+this.brickHeight || this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
-                                    this.dy = -this.dy;
-                                    b.status = 0;
-                                    this.score++;
+                                    if(this.bricks[c][r].color == "black") {
+                                        this.bricks[c][r].color = "yellow";
+                                        this.bricks[c][r].hardness = 3;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "yellow") {
+                                        this.bricks[c][r].color = "green";
+                                        this.bricks[c][r].hardness = 2;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "green") {
+                                        this.bricks[c][r].color = "blue";
+                                        this.bricks[c][r].hardness = 1;
+                                        this.dy = -this.dy;
+                                    } else {
+                                        b.status = 0;
+                                        this.dy = - this.dy;
+                                        this.score++;
+                                    }
+
                                     if(this.score == this.brickColumn*this.brickRow) {
                                         alert('you win' + ' ' + 'Your score:' + this.score);
                                         document.location.reload();
@@ -196,9 +213,26 @@
                 },
 
                 getrandomcolor: function() {
-                    var colorarr = ['black', 'purple', 'blue','yellow'];
-                    var abc = colorarr[Math.round(Math.random() * 3)]
-                    return abc;
+                    var colorarr = ['black', 'green', 'blue','yellow'];
+                    this.rdm = colorarr[Math.round(Math.random() * 3)]
+                    return this.rdm;
+                },
+
+                brickHardness: function() {
+                    if(this.rdm == 'black') {
+                        this.brkhard = 4;
+                    }
+                    if(this.rdm == 'yellow') {
+                        this.brkhard = 3;
+                    }
+                    if(this.rdm == 'green') {
+                        this.brkhard = 2;
+                    }
+                    if(this.rdm == 'blue') {
+                        this.brkhard = 1;
+                    }
+
+                    return this.brkhard;
                 },
 
                 update: function() {
@@ -228,8 +262,8 @@
                             } else {
                                 this.x = canvas.width/2;
                                 this.y = canvas.height-20;
-                                this.dx = -4.5;
-                                this.dy = -4.5;
+                                this.dx = -3;
+                                this.dy = -3;
                                 this.paddleX = canvas.width/2 - this.paddleWidth/2;
                             }
                         }
@@ -253,7 +287,7 @@
                 setInterval(this.update, 1000/120); 
             },
         })
-
+        
         console.log(gm.bricks)
     </script> 
 </body>
