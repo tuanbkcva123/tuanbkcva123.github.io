@@ -30,11 +30,9 @@
             font-size: 22px;
             font-family: 'Electrolize', sans-serif;
         }
-
         #app h2 span {
             color: red;
         }
-
         #app div {
             padding-top: 5px;
             font-size: 18px;
@@ -44,7 +42,6 @@
             top: 61px;
             right: 159px;
         }
-
         #app b{
             font-size: 22px;
         }
@@ -88,9 +85,7 @@
                 rdm:'',
                 brkhard: '',
             },
-
             methods: {
-
                 drawScore: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -106,7 +101,6 @@
                     ctx.fillStyle = "white";
                     ctx.fillText("Lives: "+this.lives, canvas.width-65, 20);
                 },
-
                 drawBall: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -116,8 +110,6 @@
                     ctx.fill();
                     ctx.closePath();
                 },
-
-
                 drawPaddle: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -127,20 +119,16 @@
                     ctx.fill();
                     ctx.closePath();
                 },
-
                 keyDown: function(e) {
                     if(e.keyCode  == 39) {
                         this.rightPressed = true;
                         document.getElementById("audio").play();
-
                     }
                     else if(e.keyCode  == 37) {
                         this.leftPressed = true;    
                         document.getElementById("audio").play();
-
                     }
                 },
-
                 keyUp: function(e) {
                     if(e.keyCode  == 39) {
                         this.rightPressed = false;
@@ -149,7 +137,6 @@
                         this.leftPressed = false;
                     }
                 },
-
                 brickPush: function() {
                     for(var c=0; c<6; c++) {
                         this.bricks[c] = [];
@@ -158,7 +145,6 @@
                         }
                     }
                 },
-
                 drawBrick: function() {
                     for(var c=0; c<this.brickColumn; c++) {
                         for(var r=0; r<this.brickRow; r++) {
@@ -178,13 +164,12 @@
                         }
                     }
                 },
-
                 collisionDetection: function() {
                     for(var c=0; c<this.brickColumn; c++) {
                         for(var r=0; r<this.brickRow; r++) {
                             var b = this.bricks[c][r];
                             if(b.status == 1) {
-                                if(this.x + 10 > b.x && this.x + 10 < b.x+this.brickWidth && this.y + 10 > b.y && this.y + 10 < b.y+this.brickHeight || this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
+                                if(this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
                                     if(this.bricks[c][r].color == "#CC0099") {
                                         this.bricks[c][r].color = "#FF3300";
                                         this.bricks[c][r].hardness = 3;
@@ -212,13 +197,11 @@
                         }
                     }
                 },
-
                 getrandomcolor: function() {
                     var colorarr = ['#CC0099', '#FF3300', '#99CC00','#3366CC'];
                     this.rdm = colorarr[Math.round(Math.random() * 3)]
                     return this.rdm;
                 },
-
                 brickHardness: function() {
                     if(this.rdm == '#CC0099') {
                         this.brkhard = 4;
@@ -232,10 +215,8 @@
                     if(this.rdm == '#3366CC') {
                         this.brkhard = 1;
                     }
-
                     return this.brkhard;
                 },
-
                 update: function() {
                     var canvas = document.getElementById('canvas');
                     ctx = canvas.getContext('2d');
@@ -246,14 +227,13 @@
                     this.collisionDetection();
                     this.drawBall();
                     this.drawPaddle();
-
                     if(this.x + this.dx > canvas.width-this.ballR || this.x + this.dx < this.ballR) {
                         this.dx = -this.dx;
                     }
                     if(this.y + this.dy < this.ballR) {
                         this.dy= -this.dy;
                     } else if ( this.y + this.dy > canvas.height-20) {
-                        if(this.x - 10 > this.paddleX && this.x - 10 < this.paddleX + this.paddleWidth || this.x + 10 > this.paddleX && this.x + 10 < this.paddleX + this.paddleWidth) {
+                        if(this.x + 10 > this.paddleX && this.x + 10 < this.paddleX + this.paddleWidth) {
                             this.dy = -this.dy;
                         } else {
                             this.lives--;
@@ -285,7 +265,7 @@
                 document.addEventListener("keydown", this.keyDown, false);
                 document.addEventListener("keyup", this.keyUp, false);
                 this.brickPush();
-                setInterval(this.update, 1000/120); 
+                setInterval(this.update, 1000/120 ); 
             },
         })
         
