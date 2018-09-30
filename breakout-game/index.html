@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:500i" rel="stylesheet">
+    <title>Breakout</title>
+    <style>
+        body {
+            background: url('background.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            overflow-x: hidden;
+        }
+        #all {
+            text-align: center; 
+            position: absolute;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #title{
+            font-family: 'Roboto', sans-serif;
+            font-size: 50px;
+            margin-bottom: 30px;
+            color:white;
+        }
+        #title span {
+            color: red;
+        }
+        #all img {
+            position: absolute;
+            top: -115px;
+            left: -54px;
+        }
+        #all img:hover {
+            transform: scale(1.3);
+        }
+        #button {
+            width: 100%;
+            text-align: center;
+        }
+        #button a {
+            text-decoration: none;
+        }
+        .btn {
+            border: 2px solid white;
+            margin: 8px 15px;
+            font-size: 30px;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            color: white;
+        }
+        .btn:hover {
+            border: 2px solid red;
+        }
+        .spinner{
+            width: 80px;
+            height: 80px;
+            border: 2px solid #f3f3f3;
+            border-top:3px solid #f25a41;
+            border-radius: 100%;
+            position: absolute;
+            top:0;
+            bottom:0;
+            left:0;
+            right: 0;
+            margin: auto;
+            animation: spin 1s infinite linear;
+        }
+        @keyframes spin {
+            from{
+                transform: rotate(0deg);
+            }to{
+                transform: rotate(360deg);
+            }
+        }
+        #overlay{
+            height:100%;
+            width:100%;
+            background:rgba(0, 0, 0, 1);
+            position:fixed;
+            left:0;
+            top:0;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+        <div id="title">Break<span>Out</span></div>
+        <img src="astronaut.png" width="150px" height="170px">
+        <div id="button">
+            <a href="breakout game.html"><div class="btn">Solo</div></a>
+            <a href="breakout-2.html"><div class="btn">Duo</div></a>
+        </div>
+    </div>
+    <div id="overlay">
+        <div class="spinner"></div> 
+    </div>
+
+    <!--loading screen-->
+    <script>
+        var overlay = document.getElementById("overlay");
+
+        window.addEventListener('load', function(){
+        overlay.style.display = 'none';
+        })
+    </script>
+</body>
+</html>
