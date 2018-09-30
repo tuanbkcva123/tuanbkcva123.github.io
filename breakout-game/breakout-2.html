@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Electrolize" rel="stylesheet">
+    <title>Breakout</title>
+    <style>
+        body {
+            background: url('background.png');
+        }
+        #canvas, #canvas2 {
+            position: relative;
+            border: 2px solid white;
+            margin: auto;
+            background: rgba(0,0,0,0.5);
+            z-index: 1;
+        }
+        #app {
+            text-align: center;
+            position: relative;
+            font-size: 10px;
+        }
+        #app h2, #app div {
+            color: white;
+        }
+        
+        
+        #app h2 {
+            font-size: 22px;
+            font-family: 'Electrolize', sans-serif;
+        }
+        #app h2 span {
+            color: red;
+        }
+        #app div {
+            padding-top: 5px;
+            font-size: 18px;
+        }
+        #app img {
+            position: absolute;
+            top: 61px;
+            right: 159px;
+        }
+        #app b{
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h2><b>BREAK</b><span>OUT</span><br><span>Fly</span> to the <span>Moon</span></h2>
+        <img src="astronaut.png" width="150px" height="150px">
+        <canvas id="canvas" width="470px" height="505px"></canvas>
+        <canvas id="canvas2" width="470px" height="505px"></canvas>
+        <div>Player1 dùng phím z và c để di chuyển <br>Player2 dùng mũi tên trái , phải để di chuyển </div>
+        <audio id="audio" preload="auto" autoplay ="autoplay" style="display:none">
+            <source src="music.mp3">
+        </audio>
+    </div>
+    <!--firstplayer-->
+    <script>
+        
+        var gm = new Vue ({
+            el: '#app',
+            data: {
+                score: 0,
+                lives: 2,
+                x: canvas.width/2,
+                y: canvas.height-20,
+                dx: 3,
+                dy: -3,
+                ballR: 10,
+                paddleHeight: 10,
+                paddleWidth: 90,
+                paddleX: 200, 
+                rightPressed: false,
+                leftPressed: false,
+                brickRow: 6,
+                brickColumn: 6,
+                brickWidth: 75.83333,
+                brickHeight: 20,
+                brickPadding: 3,
+                brickOffsetTop: 30,
+                bricks: [],
+                rdm:'',
+                brkhard: '',
+            },
+            methods: {
+                drawScore: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.font = "16px Arial";
+                    ctx.fillStyle = "white";
+                    ctx.fillText("Score: "+this.score, 8, 20);
+                },
+                
+                drawlives: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.font = "16px Arial";
+                    ctx.fillStyle = "white";
+                    ctx.fillText("Lives: "+this.lives, canvas.width-65, 20);
+                },
+                drawPlayer: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.fillText("PLayer One", 195, 20);
+                    ctx.fillStyle = "white";
+                },
+                drawBall: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.ballR, 0, Math.PI*2);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                    ctx.closePath();
+                },
+                drawPaddle: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.rect(this.paddleX, canvas.height-this.paddleHeight, this.paddleWidth, this.paddleHeight);
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                    ctx.closePath();
+                },
+                keyDown: function(e) {
+                    if(e.keyCode  == 67) {
+                        this.rightPressed = true;
+                        document.getElementById("audio").play();
+                    }
+                    else if(e.keyCode  == 90) {
+                        this.leftPressed = true;    
+                        document.getElementById("audio").play();
+                    }
+                },
+                keyUp: function(e) {
+                    if(e.keyCode  == 67) {
+                        this.rightPressed = false;
+                    }
+                    else if(e.keyCode  == 90) {
+                        this.leftPressed = false;
+                    }
+                },
+                brickPush: function() {
+                    for(var c=0; c<6; c++) {
+                        this.bricks[c] = [];
+                        for(var r=0; r<8; r++) {
+                            this.bricks[c][r] = { x: 0, y: 0, status: 1, color: this.getrandomcolor(), hardness: this.brickHardness()};
+                        }
+                    }
+                },
+                drawBrick: function() {
+                    for(var c=0; c<this.brickColumn; c++) {
+                        for(var r=0; r<this.brickRow; r++) {
+                            if(this.bricks[c][r].status == 1) {
+                                var brickX = (c*(this.brickWidth+this.brickPadding));
+                                var brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+                                this.bricks[c][r].x = brickX;
+                                this.bricks[c][r].y = brickY;
+                                var canvas = document.getElementById('canvas');
+                                ctx = canvas.getContext('2d');
+                                ctx.beginPath();
+                                ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
+                                ctx.fillStyle = this.bricks[c][r].color;
+                                ctx.fill();
+                                ctx.closePath();
+                            }
+                        }
+                    }
+                },
+                collisionDetection: function() {
+                    for(var c=0; c<this.brickColumn; c++) {
+                        for(var r=0; r<this.brickRow; r++) {
+                            var b = this.bricks[c][r];
+                            if(b.status == 1) {
+                                if(this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
+                                    if(this.bricks[c][r].color == "#CC0099") {
+                                        this.bricks[c][r].color = "#FF3300";
+                                        this.bricks[c][r].hardness = 3;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "#FF3300") {
+                                        this.bricks[c][r].color = "#99CC00";
+                                        this.bricks[c][r].hardness = 2;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "#99CC00") {
+                                        this.bricks[c][r].color = "#3366CC";
+                                        this.bricks[c][r].hardness = 1;
+                                        this.dy = -this.dy;
+                                    } else {
+                                        b.status = 0;
+                                        this.dy = - this.dy;
+                                        this.score++;
+                                    }
+                                
+                                    if(this.score == this.brickColumn*this.brickRow) {
+                                        alert('player1 win');
+                                        window.location.reload();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                getrandomcolor: function() {
+                    var colorarr = ['#CC0099', '#FF3300', '#99CC00','#3366CC'];
+                    this.rdm = colorarr[Math.round(Math.random() * 3)]
+                    return this.rdm;
+                },
+
+                brickHardness: function() {
+                    if(this.rdm == '#CC0099') {
+                        this.brkhard = 4;
+                    }
+                    if(this.rdm == '#FF3300') {
+                        this.brkhard = 3;
+                    }
+                    if(this.rdm == '#99CC00') {
+                        this.brkhard = 2;
+                    }
+                    if(this.rdm == '#3366CC') {
+                        this.brkhard = 1;
+                    }
+                    return this.brkhard;
+                },
+                update: function() {
+                    var canvas = document.getElementById('canvas');
+                    ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    this.drawScore();
+                    this.drawlives();
+                    this.drawPlayer();
+                    this.drawBrick();
+                    this.collisionDetection();
+                    this.drawBall();
+                    this.drawPaddle();
+                    if(this.x + this.dx > canvas.width-this.ballR || this.x + this.dx < this.ballR) {
+                        this.dx = -this.dx;
+                    }
+                    if(this.y + this.dy < this.ballR) {
+                        this.dy= -this.dy;
+                    } else if ( this.y + this.dy > canvas.height-20) {
+                        if(this.x + 10 > this.paddleX && this.x + 10 < this.paddleX + this.paddleWidth) {
+                            this.dy = -this.dy;
+                        } else {
+                            this.lives--;
+                            if(!this.lives) {
+                                alert("Player2 win")
+                                window.location.reload();
+                            } else {
+                                this.x = canvas.width/2;
+                                this.y = canvas.height-20;
+                                this.dx = -5;
+                                this.dy = -5;
+                                this.paddleX = canvas.width/2 - this.paddleWidth/2;
+                            }
+                        }
+                    }
+                    if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
+                        this.paddleX += 8;
+                    }
+                    else if(this.leftPressed && this.paddleX > 0) {
+                        this.paddleX -= 8;
+                    }
+                    this.y += this.dy;
+                    this.x += this.dx;
+                }
+            },
+            
+            mounted: function() {
+                document.getElementById("audio").play();
+                document.addEventListener("keydown", this.keyDown, false);
+                document.addEventListener("keyup", this.keyUp, false);
+                this.brickPush();
+                setInterval(this.update, 1000/120 ); 
+            },
+        })
+        
+        console.log(gm.bricks)
+    </script> 
+    <!--secondplayer-->
+    <script>
+        
+        var gm = new Vue ({
+            el: '#app',
+            data: {
+                score: 0,
+                lives: 2,
+                x: canvas.width/2,
+                y: canvas.height-20,
+                dx: 3,
+                dy: -3,
+                ballR: 10,
+                paddleHeight: 10,
+                paddleWidth: 90,
+                paddleX: 200, 
+                rightPressed: false,
+                leftPressed: false,
+                brickRow: 6,
+                brickColumn: 6,
+                brickWidth: 75.83333,
+                brickHeight: 20,
+                brickPadding: 3,
+                brickOffsetTop: 30,
+                bricks: [],
+                rdm:'',
+                brkhard: '',
+            },
+            methods: {
+                drawScore: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.font = "16px Arial";
+                    ctx.fillStyle = "white";
+                    ctx.fillText("Score: "+this.score, 8, 20);
+                },
+                
+                drawlives: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.font = "16px Arial";
+                    ctx.fillStyle = "white";
+                    ctx.fillText("Lives: "+this.lives, canvas.width-65, 20);
+                },
+                drawPlayer: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.fillText("PLayer Two", 195, 20);
+                    ctx.fillStyle = "white";
+                },
+                drawBall: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.ballR, 0, Math.PI*2);
+                    ctx.fillStyle = 'white';
+                    ctx.fill();
+                    ctx.closePath();
+                },
+                drawPaddle: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.beginPath();
+                    ctx.rect(this.paddleX, canvas.height-this.paddleHeight, this.paddleWidth, this.paddleHeight);
+                    ctx.fillStyle = "red";
+                    ctx.fill();
+                    ctx.closePath();
+                },
+                keyDown: function(e) {
+                    if(e.keyCode  == 39) {
+                        this.rightPressed = true;
+                        document.getElementById("audio").play();
+                    }
+                    else if(e.keyCode  == 37) {
+                        this.leftPressed = true;    
+                        document.getElementById("audio").play();
+                    }
+                },
+                keyUp: function(e) {
+                    if(e.keyCode  == 39) {
+                        this.rightPressed = false;
+                    }
+                    else if(e.keyCode  == 37) {
+                        this.leftPressed = false;
+                    }
+                },
+                brickPush: function() {
+                    for(var c=0; c<6; c++) {
+                        this.bricks[c] = [];
+                        for(var r=0; r<8; r++) {
+                            this.bricks[c][r] = { x: 0, y: 0, status: 1, color: this.getrandomcolor(), hardness: this.brickHardness()};
+                        }
+                    }
+                },
+                drawBrick: function() {
+                    for(var c=0; c<this.brickColumn; c++) {
+                        for(var r=0; r<this.brickRow; r++) {
+                            if(this.bricks[c][r].status == 1) {
+                                var brickX = (c*(this.brickWidth+this.brickPadding));
+                                var brickY = (r*(this.brickHeight+this.brickPadding))+this.brickOffsetTop;
+                                this.bricks[c][r].x = brickX;
+                                this.bricks[c][r].y = brickY;
+                                var canvas = document.getElementById('canvas2');
+                                ctx = canvas.getContext('2d');
+                                ctx.beginPath();
+                                ctx.rect(brickX, brickY, this.brickWidth, this.brickHeight);
+                                ctx.fillStyle = this.bricks[c][r].color;
+                                ctx.fill();
+                                ctx.closePath();
+                            }
+                        }
+                    }
+                },
+                collisionDetection: function() {
+                    for(var c=0; c<this.brickColumn; c++) {
+                        for(var r=0; r<this.brickRow; r++) {
+                            var b = this.bricks[c][r];
+                            if(b.status == 1) {
+                                if(this.x - 10 > b.x && this.x - 10 < b.x+this.brickWidth && this.y - 10 > b.y && this.y - 10 < b.y+this.brickHeight) {
+                                    if(this.bricks[c][r].color == "#CC0099") {
+                                        this.bricks[c][r].color = "#FF3300";
+                                        this.bricks[c][r].hardness = 3;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "#FF3300") {
+                                        this.bricks[c][r].color = "#99CC00";
+                                        this.bricks[c][r].hardness = 2;
+                                        this.dy = -this.dy;
+                                    } else if(this.bricks[c][r].color == "#99CC00") {
+                                        this.bricks[c][r].color = "#3366CC";
+                                        this.bricks[c][r].hardness = 1;
+                                        this.dy = -this.dy;
+                                    } else {
+                                        b.status = 0;
+                                        this.dy = - this.dy;
+                                        this.score++;
+                                    }
+                                
+                                    if(this.score == this.brickColumn*this.brickRow) {
+                                        alert('player2 win');
+                                        window.location.reload();
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+
+                getrandomcolor: function() {
+                    var colorarr = ['#CC0099', '#FF3300', '#99CC00','#3366CC'];
+                    this.rdm = colorarr[Math.round(Math.random() * 3)]
+                    return this.rdm;
+                },
+
+                brickHardness: function() {
+                    if(this.rdm == '#CC0099') {
+                        this.brkhard = 4;
+                    }
+                    if(this.rdm == '#FF3300') {
+                        this.brkhard = 3;
+                    }
+                    if(this.rdm == '#99CC00') {
+                        this.brkhard = 2;
+                    }
+                    if(this.rdm == '#3366CC') {
+                        this.brkhard = 1;
+                    }
+                    return this.brkhard;
+                },
+                update: function() {
+                    var canvas = document.getElementById('canvas2');
+                    ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    this.drawScore();
+                    this.drawlives();
+                    this.drawPlayer();
+                    this.drawBrick();
+                    this.collisionDetection();
+                    this.drawBall();
+                    this.drawPaddle();
+                    if(this.x + this.dx > canvas.width-this.ballR || this.x + this.dx < this.ballR) {
+                        this.dx = -this.dx;
+                    }
+                    if(this.y + this.dy < this.ballR) {
+                        this.dy= -this.dy;
+                    } else if ( this.y + this.dy > canvas.height-20) {
+                        if(this.x + 10 > this.paddleX && this.x + 10 < this.paddleX + this.paddleWidth) {
+                            this.dy = -this.dy;
+                        } else {
+                            this.lives--;
+                            if(!this.lives) {
+                                alert("Player1 win")
+                                window.location.reload();
+                            } else {
+                                this.x = canvas.width/2;
+                                this.y = canvas.height-20;
+                                this.dx = -5;
+                                this.dy = -5;
+                                this.paddleX = canvas.width/2 - this.paddleWidth/2;
+                            }
+                        }
+                    }
+                    if(this.rightPressed && this.paddleX < canvas.width-this.paddleWidth) {
+                        this.paddleX += 8;
+                    }
+                    else if(this.leftPressed && this.paddleX > 0) {
+                        this.paddleX -= 8;
+                    }
+                    this.y += this.dy;
+                    this.x += this.dx;
+                }
+            },
+            
+            mounted: function() {
+                document.getElementById("audio").play();
+                document.addEventListener("keydown", this.keyDown, false);
+                document.addEventListener("keyup", this.keyUp, false);
+                this.brickPush();
+                setInterval(this.update, 1000/120 ); 
+            },
+        })
+        
+        console.log(gm.bricks)
+    </script>
+</body>
+</html>

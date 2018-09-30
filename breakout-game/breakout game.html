@@ -197,11 +197,13 @@
                         }
                     }
                 },
+
                 getrandomcolor: function() {
                     var colorarr = ['#CC0099', '#FF3300', '#99CC00','#3366CC'];
                     this.rdm = colorarr[Math.round(Math.random() * 3)]
                     return this.rdm;
                 },
+
                 brickHardness: function() {
                     if(this.rdm == '#CC0099') {
                         this.brkhard = 4;
