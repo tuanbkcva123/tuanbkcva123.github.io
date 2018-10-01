@@ -5,100 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Roboto:500i" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="indexStyle.css">
     <title>Breakout</title>
-    <style>
-        body {
-            background: url('background.png');
-            background-size: cover;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
-        #all {
-            text-align: center; 
-            position: absolute;
-            top: 52%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        #title{
-            font-family: 'Roboto', sans-serif;
-            font-size: 50px;
-            margin-bottom: 30px;
-            color:white;
-        }
-        #title span {
-            color: red;
-        }
-        #all img {
-            position: absolute;
-            top: -115px;
-            left: -54px;
-        }
-        #all img:hover {
-            transform: scale(1.3);
-        }
-        #button {
-            width: 100%;
-            text-align: center;
-        }
-        #button a {
-            text-decoration: none;
-        }
-        .btn {
-            border: 2px solid white;
-            margin: 8px 15px;
-            font-size: 30px;
-            cursor: pointer;
-            background: rgba(0,0,0,0.5);
-            color: white;
-        }
-        .btn:hover {
-            border: 2px solid red;
-        }
-        .spinner{
-            width: 80px;
-            height: 80px;
-            border: 2px solid #f3f3f3;
-            border-top:3px solid #f25a41;
-            border-radius: 100%;
-            position: absolute;
-            top:0;
-            bottom:0;
-            left:0;
-            right: 0;
-            margin: auto;
-            animation: spin 1s infinite linear;
-        }
-        @keyframes spin {
-            from{
-                transform: rotate(0deg);
-            }to{
-                transform: rotate(360deg);
-            }
-        }
-        #overlay{
-            height:100%;
-            width:100%;
-            background:rgba(0, 0, 0, 1);
-            position:fixed;
-            left:0;
-            top:0;
-        }
-    </style>
 </head>
 <body>
     <div id="all">
         <div id="title">Break<span>Out</span></div>
-        <img src="astronaut.png" width="150px" height="170px">
+        <img src="astronaut.png" width="150px" height="170px" id="astro">
+        <a href="#modal" class="modal-open"><img src="infor.png" width="20px" height="20px" id="infor"></a>
+        <div class="modal" id="modal">
+            <div class="modal__content">
+                <a href="#" class="modal__close">&times;</a>
+                <h2 class="modal__heading">BreakOut Game Introduction</h2>
+                <p class="modal__paragraph">
+                    <div class="paragraph_content">
+                        <div>Hãy dùng thanh ngang phía dưới điều khiển đưa quả bóng phá vỡ hết số gạch.<br>Bạn có hai lần thử sức. Tuy nhiên lần thứ hai bóng sẽ bay nhanh hơn</div>
+                        <div>Game có hai chế độ chơi:</div>
+                        <ul>
+                            <li>Chơi một người: hãy dùng phím mũi tên trái phải để di chuyển thanh ngang</li>
+                            <li>
+                                <div>
+                                    Chơi với bạn:<br>
+                                    Người chơi số một: dùng phím z và c để di chuyển thanh ngang<br>
+                                    Người chơi số h ai: dùng phim mũi tên trái và phải để di chuyển thanh ngang<br>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </p>
+            </div>
+        </div>
         <div id="button">
             <a href="breakout game.html"><div class="btn">Solo</div></a>
             <a href="breakout-2.html"><div class="btn">Duo</div></a>
+        </div>
+            
+        <div class="pyro">
+            <div class="before"></div>
+            <div class="after"></div>
         </div>
     </div>
     <div id="overlay">
         <div class="spinner"></div> 
     </div>
+    <canvas id="canvas"></canvas>
 
     <!--loading screen-->
     <script>
@@ -107,6 +57,207 @@
         window.addEventListener('load', function(){
         overlay.style.display = 'none';
         })
+    </script>
+    <!--fireworkAnimation-->
+    <script>
+        window.requestAnimFrame = (function() {
+	        return window.requestAnimationFrame ||
+				window.webkitRequestAnimationFrame ||
+				window.mozRequestAnimationFrame ||
+				function(callback) {
+					window.setTimeout( callback, 1000 / 60 );
+				};
+        })();
+
+        var canvas = document.getElementById('canvas'),
+                ctx = canvas.getContext('2d'),
+                cw = window.innerWidth,
+                ch = window.innerHeight,
+                fireworks = [],
+                particles = [],
+                hue = 120,
+                limiterTotal = 50,
+                limiterTick = 0,
+                timerTotal = 11,
+                timerTick = 0,
+                mousedown = false,
+                mx,
+                my;
+                
+        canvas.width = cw;
+        canvas.height = ch;
+
+        function random( min, max ) {
+            return Math.random() * ( max - min ) + min;
+        }
+
+        function calculateDistance( p1x, p1y, p2x, p2y ) {
+            var xDistance = p1x - p2x,
+                    yDistance = p1y - p2y;
+            return Math.sqrt( Math.pow( xDistance, 2 ) + Math.pow( yDistance, 2 ) );
+        }
+
+        function Firework( sx, sy, tx, ty ) {
+            this.x = sx;
+            this.y = sy;
+            this.sx = sx;
+            this.sy = sy;
+            this.tx = tx;
+            this.ty = ty;
+            this.distanceToTarget = calculateDistance( sx, sy, tx, ty );
+            this.distanceTraveled = 0;
+            this.coordinates = [];
+            this.coordinateCount = 2;
+            while( this.coordinateCount-- ) {
+                this.coordinates.push( [ this.x, this.y ] );
+            }
+            this.angle = Math.atan2( ty - sy, tx - sx );
+            this.speed = 5;
+            this.acceleration = 500;
+            this.brightness = random( 50, 70 );
+            this.targetRadius = 1;
+        }
+
+        Firework.prototype.update = function( index ) {
+            this.coordinates.pop();
+            this.coordinates.unshift( [ this.x, this.y ] );
+            
+            if( this.targetRadius < 8 ) {
+                this.targetRadius += 0.3;
+            } else {
+                this.targetRadius = 1;
+            }
+            
+            this.speed *= this.acceleration;
+            
+            var vx = Math.cos( this.angle ) * this.speed,
+                    vy = Math.sin( this.angle ) * this.speed;
+            this.distanceTraveled = calculateDistance( this.sx, this.sy, this.x + vx, this.y + vy );
+            
+            if( this.distanceTraveled >= this.distanceToTarget ) {
+                createParticles( this.tx, this.ty );
+                fireworks.splice( index, 1 );
+            } else {
+                this.x += vx;
+                this.y += vy;
+            }
+        }
+
+        Firework.prototype.draw = function() {
+            ctx.beginPath();
+            ctx.moveTo( this.coordinates[ this.coordinates.length - 1][ 0 ], this.coordinates[ this.coordinates.length - 1][ 1 ] );
+            ctx.lineTo( this.x, this.y );
+            ctx.strokeStyle = 'hsl(' + hue + ', 100%, ' + this.brightness + '%)';
+            ctx.stroke();
+            
+            ctx.beginPath();
+            ctx.arc( this.tx, this.ty, this.targetRadius, 0, Math.PI * 2 );
+            ctx.stroke();
+        }
+
+        function Particle( x, y ) {
+            this.x = x;
+            this.y = y;
+            this.coordinates = [];
+            this.coordinateCount = 5;
+            while( this.coordinateCount-- ) {
+                this.coordinates.push( [ this.x, this.y ] );
+            }
+            this.angle = random( 0, Math.PI * 2 );
+            this.speed = random( 1, 10 );
+            this.friction = 0.95;
+            this.gravity = 1;
+            this.hue = random( hue - 20, hue + 20 );
+            this.brightness = random( 50, 80 );
+            this.alpha = 1;
+            this.decay = random( 0.015, 0.03 );
+        }
+
+        Particle.prototype.update = function( index ) {
+            this.coordinates.pop();
+            this.coordinates.unshift( [ this.x, this.y ] );
+            this.speed *= this.friction;
+            this.x += Math.cos( this.angle ) * this.speed;
+            this.y += Math.sin( this.angle ) * this.speed + this.gravity;
+            this.alpha -= this.decay;
+            
+            if( this.alpha <= this.decay ) {
+                particles.splice( index, 1 );
+            }
+        }
+
+        Particle.prototype.draw = function() {
+            ctx. beginPath();
+            ctx.moveTo( this.coordinates[ this.coordinates.length - 1 ][ 0 ], this.coordinates[ this.coordinates.length - 1 ][ 1 ] );
+            ctx.lineTo( this.x, this.y );
+            ctx.strokeStyle = 'hsla(' + this.hue + ', 100%, ' + this.brightness + '%, ' + this.alpha + ')';
+            ctx.stroke();
+        }
+
+        function createParticles( x, y ) {
+            var particleCount = 230;
+            while( particleCount-- ) {
+                particles.push( new Particle( x, y ) );
+            }
+        }
+
+        function loop() {
+            requestAnimFrame( loop );
+            hue += 2.3;
+            
+
+            ctx.globalCompositeOperation = 'destination-out';
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
+            ctx.fillRect( 0, 0, cw, ch );
+            ctx.globalCompositeOperation = 'lighter';
+
+            var i = fireworks.length;
+            while( i-- ) {
+                fireworks[ i ].draw();
+                fireworks[ i ].update( i );
+            }
+
+            var i = particles.length;
+            while( i-- ) {
+                particles[ i ].draw();
+                particles[ i ].update( i );
+            }
+
+            if( timerTick >= timerTotal ) {
+                if( !mousedown ) {
+                    fireworks.push( new Firework( cw / 2, ch, random( 0, cw ), random( 0, ch / 2 ) ) );
+                    timerTick = 0;
+                }
+            } else {
+                timerTick++;
+            }
+
+            if( limiterTick >= limiterTotal ) {
+                if( mousedown ) {
+                    fireworks.push( new Firework( cw / 500, ch, mx, my ) );
+                    limiterTick = 0;
+                }
+            } else {
+                limiterTick++;
+            }
+        }
+
+        canvas.addEventListener( 'mousemove', function(e) {
+            mx = e.pageX - canvas.offsetLeft;
+            my = e.pageY - canvas.offsetTop;
+        });
+
+        canvas.addEventListener( 'mousedown', function(e) {
+            e.preventDefault();
+            mousedown = true;
+        });
+
+        canvas.addEventListener( 'mouseup', function( e ) {
+            e.preventDefault();
+            mousedown = false;
+        });
+
+        window.onload = loop;
     </script>
 </body>
 </html>
